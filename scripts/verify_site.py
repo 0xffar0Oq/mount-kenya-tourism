@@ -43,16 +43,21 @@ json_ld_matches = re.findall(r'<script\s+type="application/ld\+json">([\s\S]*?)<
 if not json_ld_matches:
     errors.append("No JSON-LD structured data block found in index.html")
 else:
+    all_types = []
     for i, jld in enumerate(json_ld_matches):
         try:
             data = json.loads(jld.strip())
-            types = [item.get("@type") for item in data.get("@graph", [])]
+            graph = data.get("@graph", [data])
+            types = [item.get("@type") for item in graph]
+            all_types.extend(types)
             print(f"  [OK] JSON-LD block #{i+1} valid! Types found: {types}")
-            for expected_type in ["Mountain", "FAQPage", "TouristInformationCenter", "BreadcrumbList"]:
-                if expected_type not in types:
-                    errors.append(f"Expected Schema.org type '{expected_type}' missing in JSON-LD")
         except Exception as e:
             errors.append(f"Invalid JSON in JSON-LD block #{i+1}: {e}")
+    for expected_type in ["Mountain", "FAQPage", "TouristInformationCenter", "BreadcrumbList"]:
+        if expected_type not in all_types:
+            errors.append(f"Expected Schema.org type '{expected_type}' missing in JSON-LD")
+        else:
+            print(f"  [OK] Schema.org type verified: {expected_type}")
 
 # 3. Verify sitemap.xml
 sitemap_path = os.path.join(BASE_DIR, "sitemap.xml")
@@ -66,7 +71,8 @@ except Exception as e:
 
 # 4. Check for broken internal image links in HTML
 img_srcs = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', html_content)
-for src in img_srcs:
+srcset_srcs = re.findall(r'<source[^>]+srcset=["\']([^"\']+)["\']', html_content)
+for src in img_srcs + srcset_srcs:
     if src.startswith("http") or src.startswith("//") or not src:
         continue
     img_full = os.path.join(BASE_DIR, src)
