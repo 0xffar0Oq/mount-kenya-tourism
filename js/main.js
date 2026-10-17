@@ -790,7 +790,8 @@ document.addEventListener("DOMContentLoaded", () => {
     summit: { label: "Summit & Glaciers", cls: "tag-summit" },
     route: { label: "Routes & Camps", cls: "tag-route" },
     flora: { label: "Afro-Alpine Flora", cls: "tag-flora" },
-    tarn: { label: "Tarns & Valleys", cls: "tag-tarn" }
+    tarn: { label: "Tarns & Valleys", cls: "tag-tarn" },
+    camp: { label: "Camp Life", cls: "tag-camp" }
   };
 
   function classify(text) {
@@ -801,16 +802,17 @@ document.addEventListener("DOMContentLoaded", () => {
     return "tarn";
   }
 
-  function manifestToItems(manifest) {
+  function manifestToItems(manifest, folder) {
+    const base = folder || "assets/images/gallery/";
     return manifest
       .filter((m) => m && m.file)
       .map((m) => ({
-        path: "assets/images/gallery/" + m.file,
+        path: base + m.file,
         title: m.title || "Mount Kenya",
         credit: m.credit || "Wikimedia Commons",
         license: m.license || "",
         page: m.page || "",
-        cat: classify((m.title || "") + " " + (m.file || ""))
+        cat: m.cat || classify((m.title || "") + " " + (m.file || ""))
       }));
   }
 
@@ -1104,10 +1106,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function loadArchive() {
     const status = document.getElementById("galleryStatus");
-    fetch("assets/images/gallery/manifest.json", { cache: "no-cache" })
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("no manifest"))))
-      .then((manifest) => {
-        const items = manifestToItems(Array.isArray(manifest) ? manifest : []);
+    const load = (url) =>
+      fetch(url, { cache: "no-cache" })
+        .then((r) => (r.ok ? r.json() : Promise.reject(new Error("no manifest"))))
+        .catch(() => []);
+
+    Promise.all([
+      load("assets/images/camping/manifest.json"),
+      load("assets/images/gallery/manifest.json")
+    ])
+      .then(([camping, gallery]) => {
+        const items = [
+          ...manifestToItems(Array.isArray(camping) ? camping : [], "assets/images/camping/"),
+          ...manifestToItems(Array.isArray(gallery) ? gallery : [])
+        ];
         if (!items.length) throw new Error("empty manifest");
         galleryImages = items;
         if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -1167,6 +1179,27 @@ document.addEventListener("DOMContentLoaded", () => {
           slides[i].classList.add("is-active");
         }, 5200);
       }
+    }
+
+    // Totem photos keep changing — cycle through the whole archive (incl. camping)
+    const totemImgs = Array.from(document.querySelectorAll(".totem-card img"));
+    if (totemImgs.length && !reduce) {
+      totemImgs.forEach((img) => { img.style.transition = "opacity 0.55s ease"; });
+      setInterval(() => {
+        const pool = (galleryImages || []).filter((it) => it && it.path);
+        if (pool.length < 6) return;
+        for (let k = 0; k < 2; k++) {
+          const img = totemImgs[Math.floor(Math.random() * totemImgs.length)];
+          const pick = pool[Math.floor(Math.random() * pool.length)];
+          if (img.getAttribute("src") === pick.path) continue;
+          img.style.opacity = "0";
+          setTimeout(() => {
+            img.onload = () => { img.style.opacity = "1"; };
+            img.onerror = () => { img.style.opacity = "1"; };
+            img.setAttribute("src", pick.path);
+          }, 560);
+        }
+      }, 4600);
     }
 
     const left = document.getElementById("heroTotemLeft");

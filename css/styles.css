@@ -515,9 +515,9 @@ section {
   max-width: 940px;
 }
 
-/* --- Parallax photo totems flanking the hero text --- */
+/* --- Parallax photo totems — fixed rails that run the whole page --- */
 .hero-totem {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   width: clamp(120px, 16vw, 230px);
@@ -528,8 +528,8 @@ section {
   z-index: 3;
   pointer-events: none;
   will-change: transform;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
-  mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
 }
 
 .hero-totem-left { left: 0; transform: translateX(-3%); }
@@ -3646,6 +3646,7 @@ section {
 .photo-tag.tag-route { border-left-color: var(--accent-emerald); }
 .photo-tag.tag-flora { border-left-color: var(--accent-violet); }
 .photo-tag.tag-tarn { border-left-color: #46c7ff; }
+.photo-tag.tag-camp { border-left-color: var(--accent-gold-soft); }
 
 .gallery-status {
   margin-top: 1.6rem;
@@ -3824,5 +3825,65 @@ section {
   .route-showcase-card:hover,
   .weather-badge:hover {
     transform: none;
+  }
+}
+
+/* ==========================================================================
+   OPEN-AIR THEME — transparent sections so the satellite map reads through
+   ========================================================================== */
+body {
+  background-color: #05070a;
+}
+
+.section,
+.section-alt {
+  background-color: transparent;
+}
+
+/* Let the real map be seen, with a light readability scrim */
+.map-backdrop {
+  opacity: 1;
+}
+
+.map-backdrop img {
+  filter: brightness(0.84) saturate(0.96) contrast(1.05);
+}
+
+.map-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6, 7, 11, 0.68) 0%,
+      rgba(6, 7, 11, 0.34) 28%,
+      rgba(6, 7, 11, 0.4) 68%,
+      rgba(6, 7, 11, 0.78) 100%
+    );
+}
+
+/* Keep copy legible when it sits directly over imagery */
+.section h1,
+.section h2,
+.section h3,
+.section h4,
+.section p,
+.section li,
+.section .section-desc,
+.hero-lead {
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.7);
+}
+
+.site-footer {
+  background-color: rgba(6, 7, 11, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Give content breathing room between the fixed photo rails on wide screens */
+@media (min-width: 1024px) {
+  .section .container {
+    max-width: min(1180px, calc(100vw - 2 * clamp(120px, 16vw, 230px) - 2rem));
   }
 }
