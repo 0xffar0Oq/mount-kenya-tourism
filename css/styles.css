@@ -3887,3 +3887,58 @@ body {
     max-width: min(1180px, calc(100vw - 2 * clamp(120px, 16vw, 230px) - 2rem));
   }
 }
+
+/* ==========================================================================
+   CLEAR GLASS — drop the black behind hero + estimator copy, let imagery read
+   ========================================================================== */
+
+/* Hero: kill the opaque black gradient so the cycling backdrop shows through */
+.hero-bg-slide {
+  filter: brightness(0.82) contrast(1.06);
+}
+
+.hero-overlay {
+  background:
+    radial-gradient(900px 520px at 78% 20%, rgba(255, 90, 31, 0.16), transparent 64%),
+    linear-gradient(
+      180deg,
+      rgba(6, 7, 11, 0.24) 0%,
+      rgba(6, 7, 11, 0.08) 46%,
+      rgba(6, 7, 11, 0.14) 100%
+    );
+}
+
+/* Estimator: make the panel + result card clear glass instead of solid black */
+.calculator-panel {
+  background: rgba(6, 7, 11, 0.22);
+  border-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+.calc-results-card {
+  background: rgba(6, 7, 11, 0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.calc-chip-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.calc-chip-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.calc-toggle-group {
+  background: rgba(6, 7, 11, 0.28);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Fallback where backdrop-filter is unsupported: keep copy readable */
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  .calculator-panel { background: rgba(6, 7, 11, 0.6); }
+  .calc-results-card { background: rgba(6, 7, 11, 0.5); }
+}
