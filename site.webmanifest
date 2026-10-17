@@ -1,0 +1,17 @@
+{
+  "name": "Mount Kenya Expeditions & Ecotourism",
+  "short_name": "Mount Kenya",
+  "description": "Guides for trekking Mount Kenya National Park: Sirimon, Chogoria & Naromoru routes, permits, costs, flora and high-altitude photography.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#06070b",
+  "theme_color": "#070d0b",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    { "src": "assets/icons/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

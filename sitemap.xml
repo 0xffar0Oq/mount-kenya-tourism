@@ -3,38 +3,648 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://0xffar0oq.github.io/mount-kenya-tourism/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/hero-peaks.jpg</image:loc>
-      <image:title>Mount Kenya Peaks Batian Nelion and Point Lenana</image:title>
-      <image:caption>Panoramic sunrise view of Mount Kenya highest peaks: Batian 5,199m, Nelion 5,188m, and Point Lenana 4,985m.</image:caption>
+      <image:title>Mount Kenya Peaks - Batian, Nelion and Point Lenana</image:title>
+      <image:caption>Panoramic sunrise over Mount Kenya&#x27;s highest peaks.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/the-temple.jpg</image:loc>
-      <image:title>The Temple Crag and Lake Michaelson on Mount Kenya Chogoria Route</image:title>
-      <image:caption>Dramatic volcanic cliff of The Temple rising above glacial Lake Michaelson in the Gorges Valley.</image:caption>
+      <image:title>The Temple Crag and Lake Michaelson, Chogoria Route</image:title>
+      <image:caption>Volcanic cliff of The Temple above glacial Lake Michaelson.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gorges-valley.jpg</image:loc>
-      <image:title>Mount Kenya Gorges Valley on the Chogoria Approach</image:title>
-      <image:caption>Vast glacial Gorges Valley along the scenic Chogoria trekking trail towards the central peaks.</image:caption>
+      <image:title>Gorges Valley on the Chogoria Approach</image:title>
+      <image:caption>Vast glacial Gorges Valley along the Chogoria trail.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/giant-groundsels.jpg</image:loc>
-      <image:title>Endemic Giant Groundsels Dendrosenecio keniodendron in Mount Kenya Afro-alpine Zone</image:title>
-      <image:caption>Prehistoric giant groundsels flourishing in the Afro-alpine moorland zone above 4,000 meters.</image:caption>
+      <image:title>Giant Groundsels (Dendrosenecio) Afro-alpine Zone</image:title>
+      <image:caption>Prehistoric giant groundsels in the Afro-alpine moorland.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/senecio-flora.jpg</image:loc>
-      <image:title>Senecio battiscombei Tree Groundsel Flora Mount Kenya</image:title>
-      <image:caption>Endemic Senecio battiscombei tree groundsel adapted to high UV radiation and extreme alpine temperatures.</image:caption>
+      <image:title>Senecio battiscombei Tree Groundsel</image:title>
+      <image:caption>Endemic tree groundsel adapted to high UV and alpine temperatures.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/mintos-highland.jpg</image:loc>
-      <image:title>Afro-alpine Plateau and Giant Groundsels near Mintos Hut Mount Kenya</image:title>
-      <image:caption>High altitude plateau dotted with mature giant groundsels overlooking the tarns along the Chogoria route.</image:caption>
+      <image:title>Afro-alpine Plateau near Minto&#x27;s Hut</image:title>
+      <image:caption>High plateau dotted with giant groundsels by the tarns.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/001-a-kiss-of-the-sun.webp</image:loc>
+      <image:title>A kiss of the sun</image:title>
+      <image:caption>A kiss of the sun</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/002-mount-kenya-and-the-gregory-glacier.webp</image:loc>
+      <image:title>Mount Kenya and the Gregory Glacier</image:title>
+      <image:caption>Mount Kenya and the Gregory Glacier</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/003-at-3600-m-ascending-to-mt-kenya.webp</image:loc>
+      <image:title>At 3600 m ascending to Mt Kenya</image:title>
+      <image:caption>At 3600 m ascending to Mt Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/004-202102-lake-alice-mt-kenya-23-50999112521.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-23 (50999112521)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-23 (50999112521)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/005-melinis-repens-chogoria.webp</image:loc>
+      <image:title>Melinis repens Chogoria</image:title>
+      <image:caption>Melinis repens Chogoria</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/006-a-feature-from-mt-kenya.webp</image:loc>
+      <image:title>A feature from Mt. Kenya</image:title>
+      <image:caption>A feature from Mt. Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/007-kenya-20151003-ie-1.webp</image:loc>
+      <image:title>Kenya 20151003 IE 1</image:title>
+      <image:caption>Kenya 20151003 IE 1</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/008-giant-lobelia.webp</image:loc>
+      <image:title>Giant lobelia</image:title>
+      <image:caption>Giant lobelia</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/009-202102-lake-alice-mt-kenya-20-50999234737.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-20 (50999234737)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-20 (50999234737)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/010-a-scene-from-mt-kenya.webp</image:loc>
+      <image:title>A scene from Mt. Kenya</image:title>
+      <image:caption>A scene from Mt. Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/011-simba-and-teleki-tarns-mt-kenya.webp</image:loc>
+      <image:title>Simba and Teleki Tarns, Mt. Kenya</image:title>
+      <image:caption>Simba and Teleki Tarns, Mt. Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/012-gregory003.webp</image:loc>
+      <image:title>Gregory003</image:title>
+      <image:caption>Gregory003</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/013-202102-lake-alice-mt-kenya-19-50998414418.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-19 (50998414418)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-19 (50998414418)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/014-at-mt-kenya.webp</image:loc>
+      <image:title>At Mt. Kenya</image:title>
+      <image:caption>At Mt. Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/015-mount-kenya-national-park-54251808297.webp</image:loc>
+      <image:title>Mount Kenya National Park - 54251808297</image:title>
+      <image:caption>Mount Kenya National Park - 54251808297</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/016-flora-from-mt-kenya.webp</image:loc>
+      <image:title>Flora from Mt. Kenya</image:title>
+      <image:caption>Flora from Mt. Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/017-202102-lake-alice-mt-kenya-18-50999115071.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-18 (50999115071)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-18 (50999115071)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/018-awesome-mt-kenya.webp</image:loc>
+      <image:title>Awesome Mt. Kenya</image:title>
+      <image:caption>Awesome Mt. Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/019-pflanze-im-mount-kenya-nationalpark.webp</image:loc>
+      <image:title>Pflanze im Mount Kenya Nationalpark</image:title>
+      <image:caption>Pflanze im Mount Kenya Nationalpark</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/020-alchemilla-argyrophylla-mtkenya-01.webp</image:loc>
+      <image:title>Alchemilla argyrophylla mtkenya 01</image:title>
+      <image:caption>Alchemilla argyrophylla mtkenya 01</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/021-202102-lake-alice-mt-kenya-17-50999115456.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-17 (50999115456)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-17 (50999115456)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/022-200812-kenya-47-3210407457.webp</image:loc>
+      <image:title>200812 kenya-47 (3210407457)</image:title>
+      <image:caption>200812 kenya-47 (3210407457)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/023-ansicht-im-mount-kenya-nationalpark-in-kenia.webp</image:loc>
+      <image:title>Ansicht im Mount Kenya Nationalpark in Kenia</image:title>
+      <image:caption>Ansicht im Mount Kenya Nationalpark in Kenia</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/024-alchemilla-argyrophylla-mtkenya-03.webp</image:loc>
+      <image:title>Alchemilla argyrophylla mtkenya 03</image:title>
+      <image:caption>Alchemilla argyrophylla mtkenya 03</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/025-202102-lake-alice-mt-kenya-16-50999236462.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-16 (50999236462)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-16 (50999236462)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/026-200812-kenya-48-3211253344.webp</image:loc>
+      <image:title>200812 kenya-48 (3211253344)</image:title>
+      <image:caption>200812 kenya-48 (3211253344)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/027-panoramaansicht-im-mount-kenya-nationalpark.webp</image:loc>
+      <image:title>Panoramaansicht im Mount Kenya Nationalpark</image:title>
+      <image:caption>Panoramaansicht im Mount Kenya Nationalpark</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/028-alchemilla-argyrophylla-mtkenya-02.webp</image:loc>
+      <image:title>Alchemilla argyrophylla mtkenya 02</image:title>
+      <image:caption>Alchemilla argyrophylla mtkenya 02</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/029-202102-lake-alice-mt-kenya-15-50999236857.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-15 (50999236857)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-15 (50999236857)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/030-200812-kenya-49-3211254078.webp</image:loc>
+      <image:title>200812 kenya-49 (3211254078)</image:title>
+      <image:caption>200812 kenya-49 (3211254078)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/031-ansicht-im-mount-kenya-nationalpark-1.webp</image:loc>
+      <image:title>Ansicht im Mount Kenya Nationalpark 1</image:title>
+      <image:caption>Ansicht im Mount Kenya Nationalpark 1</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/032-berberis-holstii-mtkenya-thorns.webp</image:loc>
+      <image:title>Berberis holstii mtkenya thorns</image:title>
+      <image:caption>Berberis holstii mtkenya thorns</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/033-202102-lake-alice-mt-kenya-13-50999237617.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-13 (50999237617)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-13 (50999237617)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/034-200812-kenya-53-3210409703.webp</image:loc>
+      <image:title>200812 kenya-53 (3210409703)</image:title>
+      <image:caption>200812 kenya-53 (3210409703)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/035-ansicht-im-mount-kenya-nationalpark-in-kenia-2.webp</image:loc>
+      <image:title>Ansicht im Mount Kenya Nationalpark in Kenia 2</image:title>
+      <image:caption>Ansicht im Mount Kenya Nationalpark in Kenia 2</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/036-berberis-holstii-mtkenya-flowers.webp</image:loc>
+      <image:title>Berberis holstii mtkenya flowers</image:title>
+      <image:caption>Berberis holstii mtkenya flowers</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/037-200812-kenya-54-3211255670.webp</image:loc>
+      <image:title>200812 kenya-54 (3211255670)</image:title>
+      <image:caption>200812 kenya-54 (3211255670)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/038-panoramaansicht-mount-kenya.webp</image:loc>
+      <image:title>Panoramaansicht Mount Kenya</image:title>
+      <image:caption>Panoramaansicht Mount Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/039-berberis-holstii-mtkenya-fruits.webp</image:loc>
+      <image:title>Berberis holstii mtkenya fruits</image:title>
+      <image:caption>Berberis holstii mtkenya fruits</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/040-200812-kenya-51-3211279488.webp</image:loc>
+      <image:title>200812 kenya-51 (3211279488)</image:title>
+      <image:caption>200812 kenya-51 (3211279488)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/041-wasserfall-im-mount-kenya-nationalpark.webp</image:loc>
+      <image:title>Wasserfall im Mount Kenya Nationalpark</image:title>
+      <image:caption>Wasserfall im Mount Kenya Nationalpark</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/042-dipsacus-pinnatifidus-mt-kenya-1.webp</image:loc>
+      <image:title>Dipsacus pinnatifidus mt kenya 1</image:title>
+      <image:caption>Dipsacus pinnatifidus mt kenya 1</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/043-200812-kenya-69-3209448759.webp</image:loc>
+      <image:title>200812 kenya 69 (3209448759)</image:title>
+      <image:caption>200812 kenya 69 (3209448759)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/044-ansicht-im-mount-kenya-nationalpark-in-kenia-3.webp</image:loc>
+      <image:title>Ansicht im Mount Kenya Nationalpark in Kenia 3</image:title>
+      <image:caption>Ansicht im Mount Kenya Nationalpark in Kenia 3</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/045-dipsacus-pinnatifidus-mt-kenya-2.webp</image:loc>
+      <image:title>Dipsacus pinnatifidus mt kenya 2</image:title>
+      <image:caption>Dipsacus pinnatifidus mt kenya 2</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/046-200812-kenya-77-3210420105.webp</image:loc>
+      <image:title>200812 kenya-77 (3210420105)</image:title>
+      <image:caption>200812 kenya-77 (3210420105)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/047-pflanze-bl-hend-im-mount-kenya-nationalpark.webp</image:loc>
+      <image:title>Pflanze blühend im Mount Kenya Nationalpark</image:title>
+      <image:caption>Pflanze blühend im Mount Kenya Nationalpark</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/048-dipsacus-pinnatifidus-mt-kenya-3.webp</image:loc>
+      <image:title>Dipsacus pinnatifidus mt kenya 3</image:title>
+      <image:caption>Dipsacus pinnatifidus mt kenya 3</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/049-200812-kenya-78-3210420575.webp</image:loc>
+      <image:title>200812 kenya-78 (3210420575)</image:title>
+      <image:caption>200812 kenya-78 (3210420575)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/050-panoramaansicht-see-am-mount-kenya-in-kenia.webp</image:loc>
+      <image:title>Panoramaansicht See am Mount Kenya in Kenia</image:title>
+      <image:caption>Panoramaansicht See am Mount Kenya in Kenia</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/051-echinops-giganteus-mtkenya-03.webp</image:loc>
+      <image:title>Echinops giganteus mtkenya 03</image:title>
+      <image:caption>Echinops giganteus mtkenya 03</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/052-a-view-of-mt-kenya.webp</image:loc>
+      <image:title>A view of Mt Kenya</image:title>
+      <image:caption>A view of Mt Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/053-ansicht-lake-michaelson-im-mount-kenya-nationalp.webp</image:loc>
+      <image:title>Ansicht Lake Michaelson im Mount Kenya Nationalpark (54244787631)</image:title>
+      <image:caption>Ansicht Lake Michaelson im Mount Kenya Nationalpark (54244787631)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/054-echinops-giganteus-mtkenya-02.webp</image:loc>
+      <image:title>Echinops giganteus mtkenya 02</image:title>
+      <image:caption>Echinops giganteus mtkenya 02</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/055-202102-lake-alice-mt-kenya-30-50998409488.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-30 (50998409488)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-30 (50998409488)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/056-pflanze-bl-hend-am-mount-kenya.webp</image:loc>
+      <image:title>Pflanze blühend am Mount Kenya</image:title>
+      <image:caption>Pflanze blühend am Mount Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/057-echinops-giganteus-mtkenya-04.webp</image:loc>
+      <image:title>Echinops giganteus mtkenya 04</image:title>
+      <image:caption>Echinops giganteus mtkenya 04</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/058-202102-lake-alice-mt-kenya-29-50998409828.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-29 (50998409828)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-29 (50998409828)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/059-panoramaansicht-im-mount-kenya-nationalpark-5424.webp</image:loc>
+      <image:title>Panoramaansicht im Mount Kenya Nationalpark (54245049525)</image:title>
+      <image:caption>Panoramaansicht im Mount Kenya Nationalpark (54245049525)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/060-echinops-giganteus-mtkenya-01.webp</image:loc>
+      <image:title>Echinops giganteus mtkenya 01</image:title>
+      <image:caption>Echinops giganteus mtkenya 01</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/061-202102-lake-alice-mt-kenya-28-50999231302.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-28 (50999231302)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-28 (50999231302)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/062-pflanze-bl-hend-im-mount-kenya-nationalpark-5423.webp</image:loc>
+      <image:title>Pflanze blühend im Mount Kenya Nationalpark (54236970547)</image:title>
+      <image:caption>Pflanze blühend im Mount Kenya Nationalpark (54236970547)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/063-gladiolus-watsonioides-mtkenya-03.webp</image:loc>
+      <image:title>Gladiolus watsonioides mtkenya 03</image:title>
+      <image:caption>Gladiolus watsonioides mtkenya 03</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/064-202102-lake-alice-mt-kenya-27-50999110881.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-27 (50999110881)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-27 (50999110881)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/065-pflanze-bl-hend-im-mount-kenya-nationalpark-5423.webp</image:loc>
+      <image:title>Pflanze blühend im Mount Kenya Nationalpark (54237866411)</image:title>
+      <image:caption>Pflanze blühend im Mount Kenya Nationalpark (54237866411)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/066-gladiolus-watsonioides-mtkenya-02.webp</image:loc>
+      <image:title>Gladiolus watsonioides mtkenya 02</image:title>
+      <image:caption>Gladiolus watsonioides mtkenya 02</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/067-202102-lake-alice-mt-kenya-25-50999111791.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-25 (50999111791)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-25 (50999111791)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/068-luftbild-lake-michaelson-im-mount-kenya-national.webp</image:loc>
+      <image:title>Luftbild Lake Michaelson im Mount Kenya Nationalpark</image:title>
+      <image:caption>Luftbild Lake Michaelson im Mount Kenya Nationalpark</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/069-gladiolus-watsonioides-mtkenya-01.webp</image:loc>
+      <image:title>Gladiolus watsonioides mtkenya 01</image:title>
+      <image:caption>Gladiolus watsonioides mtkenya 01</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/070-202102-lake-alice-mt-kenya-24-50998412013.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-24 (50998412013)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-24 (50998412013)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/071-ansicht-im-mount-kenya-nationalpark-in-kenia-542.webp</image:loc>
+      <image:title>Ansicht im Mount Kenya Nationalpark in Kenia (54245692267)</image:title>
+      <image:caption>Ansicht im Mount Kenya Nationalpark in Kenia (54245692267)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/072-gladiolus-watsonioides-mtkenya-04.webp</image:loc>
+      <image:title>Gladiolus watsonioides mtkenya 04</image:title>
+      <image:caption>Gladiolus watsonioides mtkenya 04</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/073-202102-lake-alice-mt-kenya-14-50999237172.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-14 (50999237172)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-14 (50999237172)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/074-pflanze-bl-tenstand-im-mount-kenya-nationalpark.webp</image:loc>
+      <image:title>Pflanze Blütenstand im Mount Kenya Nationalpark</image:title>
+      <image:caption>Pflanze Blütenstand im Mount Kenya Nationalpark</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/075-dendrosenecio-battiscombei-02.webp</image:loc>
+      <image:title>Dendrosenecio battiscombei 02</image:title>
+      <image:caption>Dendrosenecio battiscombei 02</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/076-202102-lake-alice-mt-kenya-12-50999117561.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-12 (50999117561)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-12 (50999117561)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/077-bach-bersp-lt-weg-im-mount-kenya-nationalpark.webp</image:loc>
+      <image:title>Bach überspült Weg im Mount Kenya Nationalpark</image:title>
+      <image:caption>Bach überspült Weg im Mount Kenya Nationalpark</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/078-dendrosenecio-battiscombei-01.webp</image:loc>
+      <image:title>Dendrosenecio battiscombei 01</image:title>
+      <image:caption>Dendrosenecio battiscombei 01</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/079-202102-lake-alice-mt-kenya-11-50998417928.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-11 (50998417928)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-11 (50998417928)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/080-panorama-ansicht-im-mount-kenya-nationalpark.webp</image:loc>
+      <image:title>Panorama-Ansicht im Mount Kenya Nationalpark</image:title>
+      <image:caption>Panorama-Ansicht im Mount Kenya Nationalpark</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/081-dendrosenecio-battiscombei-03.webp</image:loc>
+      <image:title>Dendrosenecio battiscombei 03</image:title>
+      <image:caption>Dendrosenecio battiscombei 03</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/082-202102-lake-alice-mt-kenya-10-50999238747.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-10 (50999238747)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-10 (50999238747)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/083-waldbereich-im-mount-kenya-nationalpark.webp</image:loc>
+      <image:title>Waldbereich im Mount Kenya Nationalpark</image:title>
+      <image:caption>Waldbereich im Mount Kenya Nationalpark</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/084-dendrosenecio-battiscombei-04.webp</image:loc>
+      <image:title>Dendrosenecio battiscombei 04</image:title>
+      <image:caption>Dendrosenecio battiscombei 04</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/085-202102-lake-alice-mt-kenya-7-50999119936.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-7 (50999119936)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-7 (50999119936)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/086-mount-kenya-gate.webp</image:loc>
+      <image:title>Mount Kenya gate</image:title>
+      <image:caption>Mount Kenya gate</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/087-dendrosenecio-battiscombei-05.webp</image:loc>
+      <image:title>Dendrosenecio battiscombei 05</image:title>
+      <image:caption>Dendrosenecio battiscombei 05</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/088-202102-lake-alice-mt-kenya-6-50999240612.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-6 (50999240612)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-6 (50999240612)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/089-cave-mount-kenya.webp</image:loc>
+      <image:title>Cave Mount Kenya</image:title>
+      <image:caption>Cave Mount Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/090-dendrosenecio-battiscombei-07.webp</image:loc>
+      <image:title>Dendrosenecio battiscombei 07</image:title>
+      <image:caption>Dendrosenecio battiscombei 07</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/091-202102-lake-alice-mt-kenya-5-50998420768.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-5 (50998420768)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-5 (50998420768)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/092-naro-moru-gate-mount-kenya-national-park.webp</image:loc>
+      <image:title>Naro Moru Gate, Mount Kenya National Park</image:title>
+      <image:caption>Naro Moru Gate, Mount Kenya National Park</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/093-dendrosenecio-battiscombei-06.webp</image:loc>
+      <image:title>Dendrosenecio battiscombei 06</image:title>
+      <image:caption>Dendrosenecio battiscombei 06</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/094-202102-lake-alice-mt-kenya-4-50998421253.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-4 (50998421253)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-4 (50998421253)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/095-end-of-road-up-mount-kenya-from-noro-maru-gate.webp</image:loc>
+      <image:title>End of road up Mount Kenya from Noro Maru gate</image:title>
+      <image:caption>End of road up Mount Kenya from Noro Maru gate</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/096-alepidea-masaica-01.webp</image:loc>
+      <image:title>Alepidea masaica 01</image:title>
+      <image:caption>Alepidea masaica 01</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/097-202102-lake-alice-mt-kenya-3-50999121816.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-3 (50999121816)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-3 (50999121816)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/098-facilities-and-sign-at-met-station-1-mount-kenya.webp</image:loc>
+      <image:title>Facilities and sign at Met Station 1, Mount Kenya National Park</image:title>
+      <image:caption>Facilities and sign at Met Station 1, Mount Kenya National Park</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/099-alepidea-masaica-03.webp</image:loc>
+      <image:title>Alepidea masaica 03</image:title>
+      <image:caption>Alepidea masaica 03</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gallery/100-202102-lake-alice-mt-kenya-2-50999122306.webp</image:loc>
+      <image:title>202102 - Lake Alice Mt Kenya-2 (50999122306)</image:title>
+      <image:caption>202102 - Lake Alice Mt Kenya-2 (50999122306)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-01-mount-kenya-camping-at-met-station.webp</image:loc>
+      <image:title>first night at Mount Kenya Met Station</image:title>
+      <image:caption>first night at Mount Kenya Met Station</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-02-mount-kenya-14200ft-camp.webp</image:loc>
+      <image:title>Mackinder&#x27;s Camp, Teleki Lodge. Senecio keniensis growing at the foot. 14,200ft camp</image:title>
+      <image:caption>Mackinder&#x27;s Camp, Teleki Lodge. Senecio keniensis growing at the foot. 14,200ft camp</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-03-mount-kenya-mintos-camp.webp</image:loc>
+      <image:title>Mount Kenya: morning at Minto&#x27;s camp</image:title>
+      <image:caption>Mount Kenya: morning at Minto&#x27;s camp</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-04-mt-kenya-shiptons-camp-with-sendeyo.webp</image:loc>
+      <image:title>Shipton&#x27;s Camp on Sirimon Route with Terere and Sendeyo in the background.</image:title>
+      <image:caption>Shipton&#x27;s Camp on Sirimon Route with Terere and Sendeyo in the background.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-05-180-around-shipton-s-at-mount-kenya.webp</image:loc>
+      <image:title>180 degree view around Shipton&#x27;s Camp at Mount Kenya</image:title>
+      <image:caption>180 degree view around Shipton&#x27;s Camp at Mount Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-06-kenya-monte-kenya-da-shipton.webp</image:loc>
+      <image:title>Picture taken in last approach camp - last camp on route to the summit of Mount Kenya - hi</image:title>
+      <image:caption>Picture taken in last approach camp - last camp on route to the summit of Mount Kenya - hi</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-07-approaching-mackinders-camp.webp</image:loc>
+      <image:title>Approaching Mackinder&#x27;s camp in Teleki valley</image:title>
+      <image:caption>Approaching Mackinder&#x27;s camp in Teleki valley</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-08-mt-kenya-austrian-hut-with-nelion.webp</image:loc>
+      <image:title>A view of the Austrian Hut on Mt Kenya with Nelion (5,188m) in the background. The Normal</image:title>
+      <image:caption>A view of the Austrian Hut on Mt Kenya with Nelion (5,188m) in the background. The Normal</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-09-mt-kenya-liki-north-hut.webp</image:loc>
+      <image:title>The Liki North Hut in the Liki Valley on Mount Kenya.</image:title>
+      <image:caption>The Liki North Hut in the Liki Valley on Mount Kenya.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-10-mintos-hut.webp</image:loc>
+      <image:title>Minto&#x27;s hut is reserved for porters and guides. Everybody else camps nearby.</image:title>
+      <image:caption>Minto&#x27;s hut is reserved for porters and guides. Everybody else camps nearby.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-11-austrian-hut-with-long-drop.webp</image:loc>
+      <image:title>Top Hut on Mount Kenya in 1999 with long-drop khazi in the foreground.</image:title>
+      <image:caption>Top Hut on Mount Kenya in 1999 with long-drop khazi in the foreground.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-12-mount-kenya-sarfari-club.webp</image:loc>
+      <image:title>Mount Kenya Safari Club near Nanyuki, Kenya.</image:title>
+      <image:caption>Mount Kenya Safari Club near Nanyuki, Kenya.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-14-mount-kenya-trecking-to-the-peak.webp</image:loc>
+      <image:title>Trekers walking towards the main peaks. The majority of people will not climb the peaks, B</image:title>
+      <image:caption>Trekers walking towards the main peaks. The majority of people will not climb the peaks, B</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-15-mount-kenya-hike.webp</image:loc>
+      <image:title>Senecio and lobelia on Mount Kenya Mount Kenya</image:title>
+      <image:caption>Senecio and lobelia on Mount Kenya Mount Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-16-chogoria-valley-and-climber.webp</image:loc>
+      <image:title>felicità in vetta Looking towards the Chogoria valley from high on Nelion, Mount Kenya.</image:title>
+      <image:caption>felicità in vetta Looking towards the Chogoria valley from high on Nelion, Mount Kenya.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-17-scaling-mt-kenya.webp</image:loc>
+      <image:title>Shipton&#x27;s camp view from Kami.</image:title>
+      <image:caption>Shipton&#x27;s camp view from Kami.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-18-mt-kenya-up-and-candid.webp</image:loc>
+      <image:title>Outside Shipton&#x27;s camp.</image:title>
+      <image:caption>Outside Shipton&#x27;s camp.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-19-press-listen-to-kws-ranger-simon-gitau-on-mount-kenya-climbing-tips.webp</image:loc>
+      <image:title>KWS Ranger Simon Gitau was instrumental in notable Mountain rescue missions during his ten</image:title>
+      <image:caption>KWS Ranger Simon Gitau was instrumental in notable Mountain rescue missions during his ten</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-20-mount-kenya-near-the-vertical-bog.webp</image:loc>
+      <image:title>Near the vertical bog</image:title>
+      <image:caption>Near the vertical bog</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-21-200812-kenya-53-3210409703.webp</image:loc>
+      <image:title>from point Lenana a view of Austrian hut and teleki valley</image:title>
+      <image:caption>from point Lenana a view of Austrian hut and teleki valley</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-22-200812-kenya-54-3211255670.webp</image:loc>
+      <image:title>from point Lenana</image:title>
+      <image:caption>from point Lenana</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/camping/camp-23-early-morning-view-of-mt-kenya-s-peaks-from-an-altitude-of-4-290-meters-.webp</image:loc>
+      <image:title>PUBLISHED: &amp;lt;a href=&#x27;https://laendercode.net/en/2-letter-code/ke&#x27; data-x-rel=&#x27;noreferrer</image:title>
+      <image:caption>PUBLISHED: &amp;lt;a href=&#x27;https://laendercode.net/en/2-letter-code/ke&#x27; data-x-rel=&#x27;noreferrer</image:caption>
     </image:image>
   </url>
 </urlset>

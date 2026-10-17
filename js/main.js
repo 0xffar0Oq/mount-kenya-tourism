@@ -812,6 +812,10 @@ document.addEventListener("DOMContentLoaded", () => {
         credit: m.credit || "Wikimedia Commons",
         license: m.license || "",
         page: m.page || "",
+        w: m.w || 0,
+        h: m.h || 0,
+        tw: m.tw || 0,
+        th: m.th || 0,
         cat: m.cat || classify((m.title || "") + " " + (m.file || ""))
       }));
   }
@@ -882,6 +886,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 
+  function thumbOf(p) {
+    return typeof p === "string" && /\.webp$/i.test(p) && !/-thumb\.webp$/i.test(p)
+      ? p.replace(/\.webp$/i, "-thumb.webp")
+      : null;
+  }
+
+  function applyResponsive(img, item, sizes) {
+    const t = thumbOf(item.path);
+    if (item.w) img.width = item.w;
+    if (item.h) img.height = item.h;
+    if (t && item.tw && item.w) {
+      img.src = t;
+      img.srcset = t + " " + item.tw + "w, " + item.path + " " + item.w + "w";
+      img.sizes = sizes;
+    } else {
+      img.src = item.path;
+    }
+  }
+
   function buildReel(items) {
     const track = document.getElementById("reelTrack");
     if (!track) return;
@@ -893,9 +916,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("figure");
       card.className = "reel-card";
       const img = document.createElement("img");
-      img.src = item.path;
+      applyResponsive(img, item, "(max-width: 1024px) 70vw, 460px");
       img.alt = "";
-      img.loading = "eager";
+      img.loading = visual.length < 3 ? "eager" : "lazy";
       img.decoding = "async";
       card.appendChild(img);
       track.appendChild(card);
@@ -1011,7 +1034,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.setAttribute("aria-label", "Open photo: " + item.title);
 
       const img = document.createElement("img");
-      img.src = item.path;
+      applyResponsive(img, item, "(max-width: 640px) 46vw, (max-width: 1024px) 30vw, 300px");
       img.alt = item.title;
       img.loading = "lazy";
       img.decoding = "async";
@@ -1191,12 +1214,13 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let k = 0; k < 2; k++) {
           const img = totemImgs[Math.floor(Math.random() * totemImgs.length)];
           const pick = pool[Math.floor(Math.random() * pool.length)];
-          if (img.getAttribute("src") === pick.path) continue;
+          const nextSrc = thumbOf(pick.path) || pick.path;
+          if (img.getAttribute("src") === nextSrc) continue;
           img.style.opacity = "0";
           setTimeout(() => {
             img.onload = () => { img.style.opacity = "1"; };
             img.onerror = () => { img.style.opacity = "1"; };
-            img.setAttribute("src", pick.path);
+            img.setAttribute("src", nextSrc);
           }, 560);
         }
       }, 4600);

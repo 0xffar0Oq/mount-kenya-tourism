@@ -3338,7 +3338,7 @@ section {
   background:
     linear-gradient(180deg, rgba(4, 9, 7, 0.62) 0%, rgba(4, 9, 7, 0.76) 100%),
     radial-gradient(circle at 50% 45%, rgba(13, 30, 24, 0.35) 0%, rgba(6, 11, 9, 0.6) 100%),
-    url("../assets/images/map-satellite.jpg") center / cover no-repeat;
+    url("../assets/images/map-satellite.webp") center / cover no-repeat;
   background-blend-mode: normal, multiply, normal;
 }
 

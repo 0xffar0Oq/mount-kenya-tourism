@@ -19,7 +19,7 @@
   <meta property="og:url" content="https://0xffar0oq.github.io/mount-kenya-tourism/">
   <meta property="og:title" content="Mount Kenya Expeditions | Ultimate Trekking, Routes & Eco-Tours Guide">
   <meta property="og:description" content="Ascend Africa's second highest summit. Detailed route profiles, interactive cost estimators, endemic Afro-alpine flora guides, and authentic high-altitude photography.">
-  <meta property="og:image" content="https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/hero-peaks.jpg">
+  <meta property="og:image" content="https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/og-image.jpg">
   <meta property="og:image:width" content="1600">
   <meta property="og:image:height" content="1200">
   <meta property="og:image:alt" content="Mount Kenya summits of Batian, Nelion and Point Lenana at dawn">
@@ -33,22 +33,24 @@
   <meta name="twitter:url" content="https://0xffar0oq.github.io/mount-kenya-tourism/">
   <meta name="twitter:title" content="Mount Kenya Expeditions | Ultimate Trekking, Routes & Eco-Tours Guide">
   <meta name="twitter:description" content="Ascend Africa's second highest summit. Detailed route profiles, interactive cost estimators, and high-altitude photography.">
-  <meta name="twitter:image" content="https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/hero-peaks.jpg">
+  <meta name="twitter:image" content="https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/og-image.jpg">
   <meta name="twitter:image:alt" content="Mount Kenya Peaks Batian Nelion and Point Lenana">
 
-  <!-- Typography: Fraunces (display) + Archivo (body) + JetBrains Mono (telemetry) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <!-- Typography: Fraunces (display) + Archivo (body) + JetBrains Mono (telemetry) — self-hosted (latin) -->
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-normal-400.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces-normal-300-900.woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.min.css">
 
   <!-- Performance: LCP image preload (WebP-capable browsers use this; others skip via type) -->
   <link rel="preload" as="image" href="assets/images/hero-peaks.webp" type="image/webp" fetchpriority="high">
   <link rel="dns-prefetch" href="https://github.io">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff5a1f' d='M14 6l-3.8 5L9 9.5 2 20h20L14 6zm-1.6 4.7l1.6-2.1 4.5 7.4H5.5l3.5-5.25.9 1.25 1.5-1.3z'/%3E%3C/svg%3E">
-  <link rel="apple-touch-icon" href="assets/images/hero-peaks.jpg">
+  <link rel="stylesheet" href="css/styles.min.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <meta name="format-detection" content="telephone=no">
 
   <!-- Schema.org JSON-LD Structured Data for Rich Snippets -->
@@ -79,7 +81,7 @@
           "url": "https://www.kws.go.ke/"
         },
         "image": [
-          "https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/hero-peaks.jpg",
+          "https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/og-image.jpg",
           "https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/the-temple.jpg",
           "https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/gorges-valley.jpg"
         ]
@@ -196,8 +198,8 @@
         "@id": "https://0xffar0oq.github.io/mount-kenya-tourism/#organization",
         "name": "Mount Kenya Expeditions & Ecotourism",
         "url": "https://0xffar0oq.github.io/mount-kenya-tourism/",
-        "logo": "https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/hero-peaks.jpg",
-        "image": "https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/hero-peaks.jpg",
+        "logo": "https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/og-image.jpg",
+        "image": "https://0xffar0oq.github.io/mount-kenya-tourism/assets/images/og-image.jpg",
         "description": "Licensed KWS-affiliated eco-tour operator offering certified guided expeditions on Mount Kenya.",
         "email": "bookings@mountkenyatourism.ke",
         "telephone": "+254-711-064-000",
@@ -300,7 +302,7 @@
        GIANT TOPOGRAPHIC MAP BACKDROP (decorative, fixed behind the page)
        ======================================================================== -->
   <div class="map-backdrop" id="mapBackdrop" aria-hidden="true">
-    <img src="assets/images/map-satellite.jpg" alt="" decoding="async">
+    <img src="assets/images/map-satellite.webp" alt="" decoding="async" width="1600" height="1467">
   </div>
 
   <!-- Expedition progress / altitude gauge -->
@@ -371,16 +373,16 @@
 
       <!-- Parallax photo totems flanking the hero text -->
       <div class="hero-totem hero-totem-left" id="heroTotemLeft" aria-hidden="true">
-        <figure class="totem-card" data-depth="0.55"><img src="assets/images/camping/camp-01-mount-kenya-camping-at-met-station.webp" alt="" loading="eager" decoding="async"></figure>
-        <figure class="totem-card" data-depth="0.9"><img src="assets/images/camping/camp-14-mount-kenya-trecking-to-the-peak.webp" alt="" loading="lazy" decoding="async"></figure>
-        <figure class="totem-card" data-depth="0.38"><img src="assets/images/camping/camp-07-approaching-mackinders-camp.webp" alt="" loading="lazy" decoding="async"></figure>
-        <figure class="totem-card" data-depth="0.72"><img src="assets/images/camping/camp-19-press-listen-to-kws-ranger-simon-gitau-on-mount-kenya-climbing-tips.webp" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.55"><img src="assets/images/camping/camp-01-mount-kenya-camping-at-met-station-thumb.webp" alt="" loading="eager" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.9"><img src="assets/images/camping/camp-14-mount-kenya-trecking-to-the-peak-thumb.webp" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.38"><img src="assets/images/camping/camp-07-approaching-mackinders-camp-thumb.webp" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.72"><img src="assets/images/camping/camp-19-press-listen-to-kws-ranger-simon-gitau-on-mount-kenya-climbing-tips-thumb.webp" alt="" loading="lazy" decoding="async"></figure>
       </div>
       <div class="hero-totem hero-totem-right" id="heroTotemRight" aria-hidden="true">
-        <figure class="totem-card" data-depth="0.62"><img src="assets/images/camping/camp-03-mount-kenya-mintos-camp.webp" alt="" loading="eager" decoding="async"></figure>
-        <figure class="totem-card" data-depth="0.34"><img src="assets/images/camping/camp-16-chogoria-valley-and-climber.webp" alt="" loading="lazy" decoding="async"></figure>
-        <figure class="totem-card" data-depth="0.85"><img src="assets/images/camping/camp-04-mt-kenya-shiptons-camp-with-sendeyo.webp" alt="" loading="lazy" decoding="async"></figure>
-        <figure class="totem-card" data-depth="0.5"><img src="assets/images/camping/camp-02-mount-kenya-14200ft-camp.webp" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.62"><img src="assets/images/camping/camp-03-mount-kenya-mintos-camp-thumb.webp" alt="" loading="eager" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.34"><img src="assets/images/camping/camp-16-chogoria-valley-and-climber-thumb.webp" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.85"><img src="assets/images/camping/camp-04-mt-kenya-shiptons-camp-with-sendeyo-thumb.webp" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.5"><img src="assets/images/camping/camp-02-mount-kenya-14200ft-camp-thumb.webp" alt="" loading="lazy" decoding="async"></figure>
       </div>
 
       <div class="hero-overlay"></div>
@@ -555,7 +557,7 @@
         <article class="route-showcase-card">
           <div class="route-media">
             <img id="routeImg" 
-                 src="assets/images/hero-peaks.jpg" 
+                 src="assets/images/hero-peaks.webp" 
                  alt="Sirimon Route approaching central peaks of Mount Kenya"
                  width="1200" height="800"
                  loading="lazy" decoding="async">
@@ -1805,8 +1807,8 @@
   </div>
 
   <!-- Script -->
-  <script src="js/main.js"></script>
-  <script src="js/site.js"></script>
-  <script src="js/payments.js"></script>
+  <script src="js/main.min.js"></script>
+  <script src="js/site.min.js"></script>
+  <script src="js/payments.min.js"></script>
 </body>
 </html>
