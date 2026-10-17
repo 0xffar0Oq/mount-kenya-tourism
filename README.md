@@ -1,97 +1,153 @@
 # Mount Kenya Expeditions & Ecotourism Website
 
-A modern, responsive, and fully SEO-optimized static website for Mount Kenya expeditions, ecotourism, and trekking.
+A modern, responsive, SEO-optimised **static** website for Mount Kenya (Kirinyaga)
+trekking, ecotourism and expedition planning. No build step is required to serve it —
+everything is plain HTML/CSS/JS, deployable to GitHub Pages or any static host.
+
+- **Design language:** "Alpine Field Journal × Cinematic Noir" — dark theme with
+  flame-orange, acid-emerald and violet accents (Fraunces / Archivo / JetBrains Mono).
+- **Real satellite backdrop:** an Esri World Imagery mosaic sits behind the page, and
+  sections are translucent "clear glass" so the terrain reads through the copy.
 
 ---
 
-## 🚀 How to Host for Free on GitHub Pages
+## ✨ Features
 
-You can publish this website live on the web for free in under 2 minutes:
-
-### Method 1: Using GitHub Web Interface (Drag & Drop)
-1. Go to [github.com](https://github.com) and create a **New Repository** (e.g., `mount-kenya-tourism`).
-2. Make sure the repository visibility is set to **Public**.
-3. Unzip `mount-kenya-github-pages.zip` on your computer.
-4. Click **"uploading an existing file"** on your GitHub repository page.
-5. Drag and drop all the unzipped files and folders (`index.html`, `css/`, `js/`, `assets/`, `.nojekyll`, `sitemap.xml`, `robots.txt`) into GitHub.
-6. Commit the files.
-7. Go to **Settings** > **Pages** (in the left sidebar).
-8. Under **Build and deployment** > **Branch**:
-   - Source: `Deploy from a branch`
-   - Branch: `main` (or `master`), Folder: `/ (root)`
-   - Click **Save**.
-9. Your site will be live at: `https://<your-username>.github.io/<repository-name>/`!
-
----
-
-### Method 2: Using Git CLI
-```bash
-# Inside the unzipped directory:
-git init
-git add .
-git commit -m "Initial commit for GitHub Pages"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<your-repo-name>.git
-git push -u origin main
-```
-Then enable GitHub Pages under **Settings** > **Pages** > **Deploy from a branch** (`main` / `/ (root)`).
+- **Live satellite map backdrop:** a stitched Esri World Imagery mosaic
+  (`assets/images/map-satellite.webp`) behind every section, with a light readability
+  scrim and text-shadows.
+- **Interactive topographic map:** full-bleed route map with zoom/pan, animated route
+  highlights and waypoint telemetry (altitude, oxygen).
+- **Parallax photo totems:** fixed left/right photo rails that run the whole page,
+  drift with scroll/pointer, and **cycle through the archive** automatically.
+- **Depth-stack photo reel:** scroll-driven 3D parallax reel flying through the archive
+  (hidden for `prefers-reduced-motion` users, who keep the full grid).
+- **122-photo archive:** 100 gallery + 22 camp/people photos, category-tagged
+  (Summit, Routes, Flora, Tarns, **Camp Life**), lazy-loaded grid with a fullscreen
+  lightbox, each still discoverable via an image sitemap.
+- **Route Explorer:** dynamic trail profiles for Sirimon, Chogoria, Naromoru and Burguret.
+- **Interactive Expedition Cost Estimator:** real-time USD & KES pricing with a
+  multi-step checkout wizard.
+- **Climber's gear checklist:** interactive readiness tracker with `localStorage`.
+- **12-month climate advisor:** seasonal rainfall / temperature guidance.
+- **Ambient elevation canvas:** 60fps contour-wave hero backdrop.
+- **Transparent "glass" panels:** hero overlay and estimator panels are translucent
+  (`backdrop-filter`) instead of solid black.
+- **Performance:** responsive images (640px WebP thumbnails + `srcset`/`sizes`,
+  full-res only in the lightbox), WebP throughout, self-hosted latin fonts,
+  minified CSS/JS — initial transfer ~1.7 MB.
+- **SEO:** Schema.org JSON-LD (`Mountain`, `NationalPark`, `FAQPage`, `TouristTrip`,
+  `TravelAgency`, `BreadcrumbList`, `ItemList`, `Review`…), Open Graph, Twitter Cards,
+  a 128-image XML sitemap, `robots.txt`, and a web app manifest.
 
 ---
 
 ## 📂 Project Structure
 
 ```
-├── index.html              # Main website entry point
-├── .nojekyll               # Disables Jekyll processing on GitHub Pages
-├── sitemap.xml             # XML sitemap for Google Search Console
-├── robots.txt              # Search engine crawler directives
+├── index.html                 # Single-page site
+├── .nojekyll                  # Disables Jekyll on GitHub Pages
+├── site.webmanifest           # PWA manifest (icons, theme colour)
+├── sitemap.xml                # XML sitemap incl. 128 <image:image> entries
+├── robots.txt                 # Crawler directives + sitemap reference
 ├── css/
-│   └── styles.css          # Vanilla CSS design system (dark alpine theme)
+│   ├── styles.css             # Source design system
+│   ├── styles.min.css         # Minified (loaded by the page)
+│   ├── fonts.css              # Self-hosted @font-face (latin)
+│   └── fonts.min.css
 ├── js/
-│   └── main.js             # Vanilla JS interactive engine (Map, routes, calculator, checklist, archive)
-├── scripts/
-│   ├── fetch_gallery.py    # Downloads the CC photo archive from Wikimedia Commons
-│   ├── package_zip.py      # Builds the GitHub Pages upload bundle
-│   └── verify_site.py      # Validates structure, SEO tags, JSON-LD and asset paths
-└── assets/
-    └── images/             # Photography
-        ├── topo-backdrop.svg      # Giant topographic map used as the page backdrop
-        ├── hero-peaks.jpg
-        ├── ...                    # Featured photos
-        └── gallery/               # ~100 CC-licensed photos + manifest.json
+│   ├── main.js                # Map, routes, gallery/reel, calculator, lightbox, hero
+│   ├── site.js                # Reveals, counters, marketing behaviours
+│   ├── payments.js            # Checkout wizard / pricing engine
+│   └── *.min.js               # Minified (loaded by the page)
+├── assets/
+│   ├── fonts/                 # 5 self-hosted WOFF2 (Archivo, Fraunces, JetBrains Mono)
+│   ├── icons/                 # favicon.svg / .ico, apple-touch-icon, 192 / 512
+│   └── images/
+│       ├── map-satellite.webp         # Esri satellite mosaic used as the backdrop
+│       ├── hero-peaks.webp/.jpg       # LCP hero + Open Graph fallback
+│       ├── og-image.jpg               # 1200×630 social card
+│       ├── the-temple, gorges-valley, giant-groundsels,
+│       │   senecio-flora, mintos-highland (.webp/.jpg)
+│       ├── topo-backdrop.svg          # (legacy) giant topographic SVG
+│       ├── gallery/                   # 100 WebP + 100 -thumb + manifest.json
+│       └── camping/                   # 22 WebP + 22 -thumb + manifest.json
+└── scripts/                   # Maintenance tooling (see below)
 ```
 
 ---
 
-## ✨ Features Included
-- **Giant Topographic Backdrop:** A huge, slowly-parallaxing survey-map SVG behind the whole page.
-- **Interactive Topographic Mountain Map:** Full-bleed SVG relief contours, zoom/pan controls, route highlight animations, and waypoint telemetry (altitude, oxygen saturation).
-- **Depth-Stack Photo Reel:** Scroll-driven 3D parallax reel that flies through the expedition archive, with cursor-tilt depth.
-- **Full Photo Archive:** ~100 CC-licensed Mount Kenya photographs in a lazy-loaded, category-tagged grid with a fullscreen lightbox.
-- **Ambient Elevation Canvas:** Responsive 60fps contour wave interaction in hero backdrop.
-- **Route Explorer:** Dynamic trail profiles for Sirimon, Chogoria, Naromoru, and Burguret.
-- **Expedition Cost Estimator:** Real-time pricing calculator for USD & KES.
-- **Climber's Gear Checklist:** Interactive packing readiness tracker with local storage persistence.
-- **12-Month Climate Advisor:** Seasonal rainfall and temperature guide.
-- **SEO Ready:** Schema.org JSON-LD structured data (`Mountain`, `FAQPage`, `TouristInformationCenter`), Open Graph, and Twitter Cards.
+## 🛠️ Scripts
 
----
+| Script | Purpose |
+| --- | --- |
+| `scripts/fetch_gallery.py` | Fetch ~100 CC-licensed photos from Wikimedia Commons → WebP + `gallery/manifest.json` |
+| `scripts/fetch_camping.py` | Fetch camp/people photos → WebP + `camping/manifest.json` |
+| `scripts/fetch_map.py` | Download & stitch the Esri World Imagery satellite mosaic |
+| `scripts/optimize_images.py` | Re-encode archive images and generate `-thumb.webp` variants |
+| `scripts/gen_sitemap.py` | Regenerate `sitemap.xml` with an image entry per photo |
+| `scripts/minify.py` | Rebuild `*.min.css` / `*.min.js` with esbuild |
+| `scripts/package_zip.py` | Build a static deploy bundle (`.zip`) |
+| `scripts/verify_site.py` | Validate structure, SEO tags, JSON-LD and asset paths |
 
-## 🖼️ Rebuilding the photo archive
+### Editing workflow
+Edit the **sources**, then regenerate the artifacts the page actually loads:
 
 ```bash
-python3 scripts/fetch_gallery.py     # fetches CC photos + writes assets/images/gallery/manifest.json
+python3 scripts/minify.py          # after editing css/*.css or js/*.js
+python3 scripts/gen_sitemap.py     # after adding/removing photos
+python3 scripts/verify_site.py     # sanity-check before committing
 ```
 
-The archive is driven entirely by `assets/images/gallery/manifest.json`; the gallery
-degrades gracefully to the featured set if the manifest is missing.
+The page loads `css/styles.min.css`, `css/fonts.min.css` and `js/*.min.js`, so run
+`minify.py` whenever you change the unminified sources.
+
+### Rebuilding the photo archive
+
+```bash
+python3 scripts/fetch_gallery.py     # 100 gallery photos + manifest
+python3 scripts/fetch_camping.py     # 22 camping photos + manifest
+python3 scripts/optimize_images.py   # re-encode + write thumbnails
+python3 scripts/gen_sitemap.py       # refresh the image sitemap
+```
+
+The archive is driven entirely by `assets/images/gallery/manifest.json` and
+`assets/images/camping/manifest.json`; the site degrades gracefully to the featured
+set if a manifest is missing.
 
 ---
 
-## 📷 Photography Credits
-Images sourced under Creative Commons from Wikimedia Commons contributors
-(see `assets/images/gallery/manifest.json` for per-image credit and licence):
-- Franco Pecchio (CC BY 2.0)
-- Mehmet Karatay (CC BY-SA 2.5)
-- Dwergenpaartje (CC BY-SA 4.0)
-- Ray in Manila (CC BY 2.0)
+## 🚀 Deploying for Free on GitHub Pages
+
+### Method 1 — Web interface (drag & drop)
+1. Create a **Public** repository (e.g. `mount-kenya-tourism`).
+2. Build the bundle with `python3 scripts/package_zip.py` and unzip it.
+3. Upload all files/folders to the repo (drag & drop).
+4. **Settings → Pages → Build and deployment**: Source `Deploy from a branch`,
+   Branch `main`, Folder `/ (root)`, **Save**.
+5. Live at `https://<username>.github.io/<repository>/`.
+
+### Method 2 — Git CLI
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/<username>/<repo>.git
+git push -u origin main
+```
+Then enable Pages under **Settings → Pages** (`main` / `/ (root)`).
+
+### Custom cache headers
+GitHub Pages can't set custom headers. On Cloudflare Pages / Netlify, add immutable
+caching for `/assets/*` to maximise repeat-visit performance.
+
+---
+
+## 📷 Photography & Imagery Credits
+
+- **Satellite imagery:** Esri, Maxar, Earthstar Geographics, and the GIS User Community
+  (Esri World Imagery).
+- **Photographs:** sourced under Creative Commons from Wikimedia Commons contributors —
+  per-image credit and licence are stored in the `manifest.json` files
+  (e.g. Franco Pecchio, Mehmet Karatay, Dwergenpaartje, Ray in Manila).
