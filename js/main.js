@@ -1079,11 +1079,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const items = manifestToItems(Array.isArray(manifest) ? manifest : []);
         if (!items.length) throw new Error("empty manifest");
         galleryImages = items;
-        buildReel(items);
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          buildReel(items);
+        }
         buildGrid(items);
       })
       .catch(() => {
-        buildReel(LEGACY_IMAGES);
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          buildReel(LEGACY_IMAGES);
+        }
         buildGrid(LEGACY_IMAGES);
         if (status) status.textContent = "Archive manifest unavailable — showing featured set.";
       });

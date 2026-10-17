@@ -3573,9 +3573,7 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reel-section { height: auto; }
-  .reel-sticky { position: relative; height: auto; padding-block: 3rem; }
-  .reel-card { opacity: 1 !important; }
+  .reel-section { display: none; }
 }
 
 /* --- Let the giant topo backdrop read subtly through sectioned pages --- */
