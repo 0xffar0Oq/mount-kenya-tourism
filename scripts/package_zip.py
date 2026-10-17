@@ -2,35 +2,21 @@ import os
 import zipfile
 
 SOURCE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-OUTPUT_ZIP = os.path.abspath(os.path.join(SOURCE_DIR, "..", "mount-kenya-github-pages.zip"))
+OUTPUT_ZIP = os.path.abspath(os.path.join(SOURCE_DIR, "..", "mount-kenya-preview.zip"))
 
-# Files and directories to package directly for GitHub Pages root
-INCLUDE_PATTERNS = [
-    "index.html",
-    ".nojekyll",
-    "README.md",
-    "sitemap.xml",
-    "robots.txt",
-    "css/styles.css",
-    "js/main.js",
-    "assets/images/hero-peaks.jpg",
-    "assets/images/the-temple.jpg",
-    "assets/images/gorges-valley.jpg",
-    "assets/images/giant-groundsels.jpg",
-    "assets/images/senecio-flora.jpg",
-    "assets/images/mintos-highland.jpg"
-]
+# Directories that should never ship in the deploy bundle.
+SKIP_DIRS = {".git", "scripts", "__pycache__", "node_modules"}
 
-print(f"Creating GitHub Pages bundle: {OUTPUT_ZIP}")
+print(f"Creating static deploy bundle: {OUTPUT_ZIP}")
+count = 0
 with zipfile.ZipFile(OUTPUT_ZIP, "w", zipfile.ZIP_DEFLATED) as zipf:
-    for rel_path in INCLUDE_PATTERNS:
-        full_path = os.path.join(SOURCE_DIR, rel_path)
-        if os.path.exists(full_path):
-            zipf.write(full_path, arcname=rel_path)
-            size_kb = os.path.getsize(full_path) / 1024
-            print(f"  + Added: {rel_path} ({size_kb:.1f} KB)")
-        else:
-            print(f"  ! Warning: {rel_path} not found!")
+    for root, dirs, files in os.walk(SOURCE_DIR):
+        dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
+        for name in files:
+            full = os.path.join(root, name)
+            rel = os.path.relpath(full, SOURCE_DIR)
+            zipf.write(full, arcname=rel)
+            count += 1
 
 zip_size_mb = os.path.getsize(OUTPUT_ZIP) / (1024 * 1024)
-print(f"\nSuccessfully generated {OUTPUT_ZIP} ({zip_size_mb:.2f} MB)")
+print(f"Bundled {count} files -> {OUTPUT_ZIP} ({zip_size_mb:.2f} MB)")

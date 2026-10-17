@@ -48,33 +48,49 @@ Then enable GitHub Pages under **Settings** > **Pages** > **Deploy from a branch
 ├── css/
 │   └── styles.css          # Vanilla CSS design system (dark alpine theme)
 ├── js/
-│   └── main.js             # Vanilla JS interactive engine (Map, routes, calculator, checklist)
+│   └── main.js             # Vanilla JS interactive engine (Map, routes, calculator, checklist, archive)
+├── scripts/
+│   ├── fetch_gallery.py    # Downloads the CC photo archive from Wikimedia Commons
+│   ├── package_zip.py      # Builds the GitHub Pages upload bundle
+│   └── verify_site.py      # Validates structure, SEO tags, JSON-LD and asset paths
 └── assets/
-    └── images/             # High-resolution Mount Kenya photography
+    └── images/             # Photography
+        ├── topo-backdrop.svg      # Giant topographic map used as the page backdrop
         ├── hero-peaks.jpg
-        ├── the-temple.jpg
-        ├── gorges-valley.jpg
-        ├── giant-groundsels.jpg
-        ├── senecio-flora.jpg
-        └── mintos-highland.jpg
+        ├── ...                    # Featured photos
+        └── gallery/               # ~100 CC-licensed photos + manifest.json
 ```
 
 ---
 
 ## ✨ Features Included
-- **Interactive Topographic Mountain Map:** SVG relief contours, zoom/pan controls, route highlight animations, and waypoint telemetry (altitude, oxygen saturation).
+- **Giant Topographic Backdrop:** A huge, slowly-parallaxing survey-map SVG behind the whole page.
+- **Interactive Topographic Mountain Map:** Full-bleed SVG relief contours, zoom/pan controls, route highlight animations, and waypoint telemetry (altitude, oxygen saturation).
+- **Depth-Stack Photo Reel:** Scroll-driven 3D parallax reel that flies through the expedition archive, with cursor-tilt depth.
+- **Full Photo Archive:** ~100 CC-licensed Mount Kenya photographs in a lazy-loaded, category-tagged grid with a fullscreen lightbox.
 - **Ambient Elevation Canvas:** Responsive 60fps contour wave interaction in hero backdrop.
 - **Route Explorer:** Dynamic trail profiles for Sirimon, Chogoria, Naromoru, and Burguret.
 - **Expedition Cost Estimator:** Real-time pricing calculator for USD & KES.
 - **Climber's Gear Checklist:** Interactive packing readiness tracker with local storage persistence.
 - **12-Month Climate Advisor:** Seasonal rainfall and temperature guide.
-- **Fullscreen Lightbox Gallery:** High-resolution photography with keyboard navigation.
 - **SEO Ready:** Schema.org JSON-LD structured data (`Mountain`, `FAQPage`, `TouristInformationCenter`), Open Graph, and Twitter Cards.
 
 ---
 
+## 🖼️ Rebuilding the photo archive
+
+```bash
+python3 scripts/fetch_gallery.py     # fetches CC photos + writes assets/images/gallery/manifest.json
+```
+
+The archive is driven entirely by `assets/images/gallery/manifest.json`; the gallery
+degrades gracefully to the featured set if the manifest is missing.
+
+---
+
 ## 📷 Photography Credits
-Images sourced under Creative Commons from Wikimedia Commons contributors:
+Images sourced under Creative Commons from Wikimedia Commons contributors
+(see `assets/images/gallery/manifest.json` for per-image credit and licence):
 - Franco Pecchio (CC BY 2.0)
 - Mehmet Karatay (CC BY-SA 2.5)
 - Dwergenpaartje (CC BY-SA 4.0)

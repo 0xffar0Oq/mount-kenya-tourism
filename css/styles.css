@@ -3188,3 +3188,461 @@ section {
   .checkout-steps .checkout-step-dot { font-size: 0; gap: 0; justify-content: center; }
   .checkout-steps .checkout-step-dot span { font-size: 0.6rem; }
 }
+
+/* ==========================================================================
+   REDESIGN 2026 — GIANT TOPO BACKDROP, HUGE MAP, DEPTH-STACK PHOTO REEL,
+   FULL PHOTO ARCHIVE GRID
+   ========================================================================== */
+
+/* --- Giant fixed topographic map backdrop behind the whole page --- */
+.map-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.map-backdrop img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 165vmax;
+  height: 165vmax;
+  max-width: none;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@media (max-width: 900px) {
+  .map-backdrop { opacity: 0.4; }
+}
+
+/* Let the giant map read through the interactive map section */
+#mountain-map {
+  background-color: transparent;
+}
+
+/* --- Make the interactive topographic map HUGE / full-bleed --- */
+#mountain-map .container {
+  max-width: none;
+  padding-inline: clamp(1rem, 3vw, 3rem);
+}
+
+#mountain-map .map-controls-bar {
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+#mountain-map .section-header {
+  max-width: 760px;
+}
+
+.map-viewport-wrapper {
+  height: clamp(600px, 88vh, 1040px);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(13, 30, 24, 0.55) 0%, rgba(6, 11, 9, 0.72) 100%);
+  backdrop-filter: blur(2px);
+}
+
+/* Truly edge-to-edge "wall map" on wide screens */
+@media (min-width: 1024px) {
+  #mountain-map .container {
+    padding-inline: 0;
+  }
+  #mountain-map .section-header,
+  #mountain-map .map-controls-bar {
+    padding-inline: clamp(1rem, 3vw, 3rem);
+  }
+  #mountain-map .map-viewport-wrapper {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+/* --- Gallery hub shell --- */
+.gallery-hub {
+  position: relative;
+  overflow: visible;
+}
+
+/* --- Depth-stack parallax reel --- */
+.reel-section {
+  position: relative;
+  height: 420vh;
+}
+
+.reel-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.reel-perspective {
+  position: absolute;
+  inset: 0;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+.reel-track {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  --card-w: clamp(150px, 17vw, 260px);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.reel-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--card-w);
+  margin-left: calc(var(--card-w) / -2);
+  margin-top: calc(var(--card-w) * 0.375 * -1);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+  background: #0b0d12;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.reel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 4 / 3;
+}
+
+.reel-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+}
+
+/* --- Reel HUD --- */
+.reel-hud {
+  position: absolute;
+  left: clamp(1rem, 4vw, 3rem);
+  bottom: clamp(1.5rem, 5vh, 3.5rem);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.reel-hud-tag {
+  color: var(--accent-signal);
+}
+
+.reel-hud-count {
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+}
+
+.reel-hud-count #reelNow {
+  color: var(--accent-gold);
+}
+
+.reel-hud-bar {
+  width: min(46vw, 320px);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+
+.reel-hud-bar span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-soft));
+}
+
+.reel-scroll-hint {
+  position: absolute;
+  right: clamp(1rem, 4vw, 3rem);
+  bottom: clamp(1.5rem, 5vh, 3.5rem);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.reel-hint-arrow {
+  color: var(--accent-gold);
+  animation: reelArrow 1.6s ease-in-out infinite;
+}
+
+@keyframes reelArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* --- Full archive grid --- */
+.archive-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.archive-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  letter-spacing: -0.015em;
+}
+
+.archive-title span {
+  color: var(--accent-gold);
+}
+
+.archive-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.archive-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.archive-legend .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-summit { background: var(--accent-gold); }
+.dot-route { background: var(--accent-emerald); }
+.dot-flora { background: var(--accent-violet); }
+.dot-tarn { background: #46c7ff; }
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.photo-card {
+  position: relative;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--bg-card);
+  aspect-ratio: 4 / 3;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out),
+    border-color 0.3s ease;
+}
+
+.photo-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-card:hover,
+.photo-card:focus-visible {
+  border-color: var(--border-accent);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.photo-card:hover img {
+  transform: scale(1.06);
+}
+
+.photo-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  padding: 0.85rem;
+  background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.82) 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.photo-card:hover .photo-card-overlay,
+.photo-card:focus-visible .photo-card-overlay {
+  opacity: 1;
+}
+
+.photo-card-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.photo-card-meta {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.photo-tag {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: rgba(6, 7, 11, 0.7);
+  backdrop-filter: blur(6px);
+  color: var(--text-primary);
+  border-left: 2px solid var(--accent-gold);
+}
+
+.photo-tag.tag-route { border-left-color: var(--accent-emerald); }
+.photo-tag.tag-flora { border-left-color: var(--accent-violet); }
+.photo-tag.tag-tarn { border-left-color: #46c7ff; }
+
+.gallery-status {
+  margin-top: 1.6rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.gallery-status[hidden] { display: none; }
+
+@media (max-width: 720px) {
+  .reel-section { height: 300vh; }
+  .reel-scroll-hint { display: none; }
+  .photo-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reel-section { height: auto; }
+  .reel-sticky { position: relative; height: auto; padding-block: 3rem; }
+  .reel-card { opacity: 1 !important; }
+}
+
+/* --- Let the giant topo backdrop read subtly through sectioned pages --- */
+.section-alt {
+  background-color: rgba(10, 12, 17, 0.82);
+}
+
+.site-footer {
+  background-color: rgba(6, 7, 11, 0.9);
+}
+
+/* --- Responsive fixes: keep the mobile header usable & kill sub-pixel overflow --- */
+.nav-wrapper {
+  gap: 0.75rem;
+}
+
+.brand-logo {
+  min-width: 0;
+}
+
+.brand-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-actions {
+  flex-shrink: 0;
+}
+
+@media (max-width: 560px) {
+  .brand-badge { display: none; }
+  .brand-logo { font-size: 1.02rem; gap: 0.5rem; }
+  .brand-logo svg { width: 26px; height: 26px; }
+  .nav-actions .btn-open-booking { padding: 0.4rem 0.72rem; font-size: 0.72rem; }
+}
+
+@media (max-width: 400px) {
+  .nav-actions .btn-open-booking { display: none; }
+}
+
+/* Calculator: prevent child overflow on narrow screens */
+.calculator-panel > * { min-width: 0; }
+.calc-controls, .calc-form-group, .calc-options-grid { min-width: 0; }
+
+@media (max-width: 480px) {
+  .calc-options-grid { grid-template-columns: 1fr 1fr; }
+  .calc-chip-btn { padding-inline: 0.5rem; }
+}
+
+/* Grid children must be allowed to shrink (prevents overflow on small screens) */
+.about-grid > *,
+.calculator-panel > *,
+.route-showcase-card > *,
+.season-display-card > *,
+.bio-card,
+.faq-item,
+.season-info-col,
+.calc-results-card {
+  min-width: 0;
+}
+
+.season-metrics-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 480px) {
+  .season-display-card { padding: 1.5rem; }
+  .season-metrics-grid { grid-template-columns: 1fr 1fr; }
+}

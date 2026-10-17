@@ -767,41 +767,53 @@ document.addEventListener("DOMContentLoaded", () => {
     applySeason(keys[new Date().getMonth()]);
   })();
 
-  // --- 6. Photo Gallery & Fullscreen Lightbox ---
-  const galleryImages = [
-    {
-      src: "hero-peaks",
-      title: "Mount Kenya Triple Summits",
-      desc: "Panoramic sunrise view of Point Lenana (4,985m), Nelion (5,188m), and Batian (5,199m). Photo: Franco Pecchio (CC BY 2.0)."
-    },
-    {
-      src: "the-temple",
-      title: "The Temple & Lake Michaelson",
-      desc: "Sheer vertical volcanic monolith towering over emerald Lake Michaelson in the Gorges Valley. Photo: Mehmet Karatay (CC BY-SA 2.5)."
-    },
-    {
-      src: "gorges-valley",
-      title: "Gorges Valley Alpine Approach",
-      desc: "Looking up the dramatic glaciated canyon on the Chogoria Route approach. Photo: Mehmet Karatay (CC BY-SA 2.5)."
-    },
-    {
-      src: "giant-groundsels",
-      title: "Endemic Dendrosenecio keniodendron",
-      desc: "Primeval stand of Giant Groundsels thriving at 4,300m above Hall Tarns. Photo: Dwergenpaartje (CC BY-SA 4.0)."
-    },
-    {
-      src: "senecio-flora",
-      title: "Senecio battiscombei Tree Groundsel",
-      desc: "Afro-alpine tree groundsel uniquely adapted to freezing night temperatures and intense equatorial UV. Photo: Mehmet Karatay (CC BY-SA 2.5)."
-    },
-    {
-      src: "mintos-highland",
-      title: "Minto's Camp & High Moorland Tarns",
-      desc: "Dramatic moorland plateau near Minto's Hut overlooking the deep Gorges Valley. Photo: Ray in Manila (CC BY 2.0)."
-    }
-  ];
+  // --- 6. Photo Archive: depth-stack parallax reel, grid & lightbox ---
+  const LEGACY_IMAGES = [
+    { src: "hero-peaks", title: "Mount Kenya Triple Summits", desc: "Panoramic sunrise over Lenana, Nelion and Batian. Photo: Franco Pecchio (CC BY 2.0)." },
+    { src: "the-temple", title: "The Temple & Lake Michaelson", desc: "Volcanic monolith above emerald Lake Michaelson. Photo: Mehmet Karatay (CC BY-SA 2.5)." },
+    { src: "gorges-valley", title: "Gorges Valley Alpine Approach", desc: "Glaciated canyon on the Chogoria Route. Photo: Mehmet Karatay (CC BY-SA 2.5)." },
+    { src: "giant-groundsels", title: "Dendrosenecio keniodendron", desc: "Giant Groundsels at 4,300m. Photo: Dwergenpaartje (CC BY-SA 4.0)." },
+    { src: "senecio-flora", title: "Senecio battiscombei", desc: "Afro-alpine tree groundsel. Photo: Mehmet Karatay (CC BY-SA 2.5)." },
+    { src: "mintos-highland", title: "Minto's Camp & High Tarns", desc: "Moorland plateau near Minto's Hut. Photo: Ray in Manila (CC BY 2.0)." }
+  ].map((item) => ({
+    path: imgPath(item.src),
+    title: item.title,
+    credit: item.desc,
+    license: "",
+    page: "",
+    cat: classify(item.title + " " + item.desc)
+  }));
 
-  let currentLightboxIdx = 0;
+  let galleryImages = LEGACY_IMAGES.slice();
+
+  const CATEGORY_META = {
+    summit: { label: "Summit & Glaciers", cls: "tag-summit" },
+    route: { label: "Routes & Camps", cls: "tag-route" },
+    flora: { label: "Afro-Alpine Flora", cls: "tag-flora" },
+    tarn: { label: "Tarns & Valleys", cls: "tag-tarn" }
+  };
+
+  function classify(text) {
+    const t = text.toLowerCase();
+    if (/batian|nelion|lenana|summit|peak|glacier|ice|snow|rock|spire|crag|core|climb/.test(t)) return "summit";
+    if (/camp|hut|gate|shipton|mackinder|austrian|route|trail|trek|path|sign|moses|station|ascent|approach/.test(t)) return "route";
+    if (/flora|senecio|dendro|lobelia|alchemilla|groundsel|plant|flower|blossom|echinops|berberis|gladiolus|dipsacus|vegetation|forest|moss|kale|heather|giant/.test(t)) return "flora";
+    return "tarn";
+  }
+
+  function manifestToItems(manifest) {
+    return manifest
+      .filter((m) => m && m.file)
+      .map((m) => ({
+        path: "assets/images/gallery/" + m.file,
+        title: m.title || "Mount Kenya",
+        credit: m.credit || "Wikimedia Commons",
+        license: m.license || "",
+        page: m.page || "",
+        cat: classify((m.title || "") + " " + (m.file || ""))
+      }));
+  }
+
   const lightboxModal = document.getElementById("lightboxModal");
   const lightboxImg = document.getElementById("lightboxImg");
   const lightboxCaption = document.getElementById("lightboxCaption");
@@ -809,33 +821,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxPrev = document.getElementById("lightboxPrev");
   const lightboxNext = document.getElementById("lightboxNext");
 
+  let currentLightboxIdx = 0;
+
   function openLightbox(index) {
+    const item = galleryImages[index];
+    if (!item || !lightboxModal) return;
     currentLightboxIdx = index;
-    const item = galleryImages[currentLightboxIdx];
-    if (item && lightboxModal) {
-      lightboxImg.src = imgPath(item.src);
-      lightboxImg.alt = item.title;
-      lightboxCaption.innerHTML = `<strong>${item.title}</strong> — ${item.desc}`;
-      lightboxModal.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
+    lightboxImg.src = item.path;
+    lightboxImg.alt = item.title;
+    const meta = [item.credit, item.license].filter(Boolean).join(" · ");
+    lightboxCaption.textContent = "";
+    const strong = document.createElement("strong");
+    strong.textContent = item.title;
+    lightboxCaption.appendChild(strong);
+    if (meta) lightboxCaption.appendChild(document.createTextNode(" — " + meta));
+    lightboxModal.classList.add("active");
+    document.body.style.overflow = "hidden";
   }
 
   function closeLightbox() {
-    if (lightboxModal) {
-      lightboxModal.classList.remove("active");
-      document.body.style.overflow = "";
-    }
+    if (!lightboxModal) return;
+    lightboxModal.classList.remove("active");
+    document.body.style.overflow = "";
   }
 
   function stepLightbox(dir) {
-    currentLightboxIdx = (currentLightboxIdx + dir + galleryImages.length) % galleryImages.length;
-    openLightbox(currentLightboxIdx);
+    if (!galleryImages.length) return;
+    const next = (currentLightboxIdx + dir + galleryImages.length) % galleryImages.length;
+    openLightbox(next);
   }
-
-  document.querySelectorAll(".gallery-card").forEach((card, index) => {
-    card.addEventListener("click", () => openLightbox(index));
-  });
 
   if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
   if (lightboxPrev) lightboxPrev.addEventListener("click", () => stepLightbox(-1));
@@ -847,6 +861,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  document.addEventListener("click", (e) => {
+    const trigger = e.target.closest("[data-gallery-index]");
+    if (trigger) commitOpen(parseInt(trigger.dataset.galleryIndex, 10));
+  });
+
+  function commitOpen(i) {
+    if (!Number.isNaN(i)) openLightbox(i);
+  }
+
   window.addEventListener("keydown", (e) => {
     if (lightboxModal && lightboxModal.classList.contains("active")) {
       if (e.key === "Escape") closeLightbox();
@@ -854,6 +877,244 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.key === "ArrowRight") stepLightbox(1);
     }
   });
+
+  const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
+
+  function buildReel(items) {
+    const track = document.getElementById("reelTrack");
+    if (!track) return;
+    track.innerHTML = "";
+    const visual = [];
+    const step = Math.max(1, Math.floor(items.length / 30));
+    for (let i = 0; i < items.length && visual.length < 30; i += step) {
+      const item = items[i];
+      const card = document.createElement("figure");
+      card.className = "reel-card";
+      const img = document.createElement("img");
+      img.src = item.path;
+      img.alt = "";
+      img.loading = "eager";
+      img.decoding = "async";
+      card.appendChild(img);
+      track.appendChild(card);
+      visual.push(card);
+    }
+    initReel(visual.length);
+  }
+
+  function initReel(count) {
+    const section = document.getElementById("reelSection");
+    const track = document.getElementById("reelTrack");
+    if (!section || !track || !count) return;
+    const cards = Array.from(track.children);
+    const nowEl = document.getElementById("reelNow");
+    const totalEl = document.getElementById("reelTotal");
+    const barEl = document.getElementById("reelBar");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (totalEl) totalEl.textContent = String(count).padStart(2, "0");
+
+    const ZGAP = 420;
+    const totalDepth = (count - 1) * ZGAP;
+    const base = cards.map((_, i) => ({
+      x: Math.sin(i * 0.7) * 70,
+      y: Math.cos(i * 0.9) * 46,
+      rot: Math.sin(i * 1.3) * 8
+    }));
+
+    let secTop = 0;
+    let secRange = 1;
+    function measure() {
+      const rect = section.getBoundingClientRect();
+      secTop = rect.top + window.scrollY;
+      secRange = Math.max(1, section.offsetHeight - window.innerHeight);
+    }
+    measure();
+    window.addEventListener("resize", measure);
+
+    let pointerX = 0;
+    let pointerY = 0;
+    window.addEventListener(
+      "pointermove",
+      (e) => {
+        pointerX = (e.clientX / window.innerWidth - 0.5) * 2;
+        pointerY = (e.clientY / window.innerHeight - 0.5) * 2;
+      },
+      { passive: true }
+    );
+
+    let target = 0;
+    let cur = -1;
+    let raf = null;
+
+    function apply(p) {
+      const camZ = p * (totalDepth + ZGAP * 0.6);
+      const tiltY = pointerX * 10;
+      const tiltX = -pointerY * 8;
+      track.style.transform =
+        `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(${camZ}px)`;
+
+      for (let i = 0; i < cards.length; i++) {
+        const z = -i * ZGAP;
+        const depth = -(z + camZ); // distance ahead of the camera
+        const nearFade = clamp(depth / 460, 0, 1);
+        const farFade = clamp((totalDepth + ZGAP - depth) / 900, 0, 1);
+        const op = nearFade * farFade;
+        const s = base[i];
+        cards[i].style.transform =
+          `translate3d(${s.x}px, ${s.y}px, ${z}px) rotateZ(${s.rot}deg)`;
+        cards[i].style.opacity = op.toFixed(3);
+      }
+
+      if (barEl) barEl.style.width = (p * 100).toFixed(1) + "%";
+      if (nowEl) {
+        const idx = clamp(Math.round(p * (count - 1)) + 1, 1, count);
+        nowEl.textContent = String(idx).padStart(2, "0");
+      }
+    }
+
+    function render() {
+      raf = null;
+      cur += (target - cur) * 0.14;
+      if (Math.abs(target - cur) < 0.0006) cur = target;
+      apply(cur);
+      if (cur !== target) raf = requestAnimationFrame(render);
+    }
+
+    function onScroll() {
+      target = clamp((window.scrollY - secTop) / secRange, 0, 1);
+      if (!raf) raf = requestAnimationFrame(render);
+    }
+
+    if (reduce) {
+      track.style.transform = "translateZ(0)";
+      return;
+    }
+    apply(0);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  function buildGrid(items) {
+    const grid = document.getElementById("photoGrid");
+    const status = document.getElementById("galleryStatus");
+    const countEl = document.getElementById("archiveCount");
+    if (!grid) return;
+    grid.innerHTML = "";
+    items.forEach((item, i) => {
+      const meta = CATEGORY_META[item.cat] || CATEGORY_META.tarn;
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = "photo-card";
+      card.dataset.galleryIndex = String(i);
+      card.setAttribute("aria-label", "Open photo: " + item.title);
+
+      const img = document.createElement("img");
+      img.src = item.path;
+      img.alt = item.title;
+      img.loading = "lazy";
+      img.decoding = "async";
+
+      const tag = document.createElement("span");
+      tag.className = "photo-tag " + meta.cls;
+      tag.textContent = meta.label.split(" ")[0];
+
+      const overlay = document.createElement("span");
+      overlay.className = "photo-card-overlay";
+      const title = document.createElement("span");
+      title.className = "photo-card-title";
+      title.textContent = item.title;
+      const credit = document.createElement("span");
+      credit.className = "photo-card-meta";
+      credit.textContent = (item.credit || "").slice(0, 64);
+      overlay.appendChild(title);
+      overlay.appendChild(credit);
+
+      card.appendChild(img);
+      card.appendChild(tag);
+      card.appendChild(overlay);
+      grid.appendChild(card);
+    });
+
+    if (countEl) countEl.textContent = String(items.length);
+    if (status) {
+      if (items.length > LEGACY_IMAGES.length) {
+        status.hidden = true;
+      } else {
+        status.textContent = "Showing archive placeholder — run scripts/fetch_gallery.py to load the full collection.";
+      }
+    }
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              el.style.transitionDelay = (el.dataset.d * 30) + "ms";
+              el.classList.add("is-visible");
+              obs.unobserve(el);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
+      );
+      grid.querySelectorAll(".photo-card").forEach((el, i) => {
+        if (i < 12) {
+          el.classList.add("is-visible");
+          return;
+        }
+        el.dataset.d = String(i % 8);
+        io.observe(el);
+      });
+    } else {
+      grid.querySelectorAll(".photo-card").forEach((el) => el.classList.add("is-visible"));
+    }
+  }
+
+  function loadArchive() {
+    const status = document.getElementById("galleryStatus");
+    fetch("assets/images/gallery/manifest.json", { cache: "no-cache" })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("no manifest"))))
+      .then((manifest) => {
+        const items = manifestToItems(Array.isArray(manifest) ? manifest : []);
+        if (!items.length) throw new Error("empty manifest");
+        galleryImages = items;
+        buildReel(items);
+        buildGrid(items);
+      })
+      .catch(() => {
+        buildReel(LEGACY_IMAGES);
+        buildGrid(LEGACY_IMAGES);
+        if (status) status.textContent = "Archive manifest unavailable — showing featured set.";
+      });
+  }
+
+  loadArchive();
+
+  // --- Giant topographic map backdrop parallax ---
+  (function mapBackdropParallax() {
+    const backdrop = document.getElementById("mapBackdrop");
+    if (!backdrop) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const img = backdrop.querySelector("img");
+    let raf = null;
+    function update() {
+      raf = null;
+      const y = window.scrollY;
+      const drift = Math.sin(y * 0.00045) * 4;
+      img.style.transform =
+        `translate3d(-50%, calc(-50% + ${(y * 0.06).toFixed(1)}px), 0) ` +
+        `rotate(${drift.toFixed(2)}deg) scale(1.04)`;
+    }
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!raf) raf = requestAnimationFrame(update);
+      },
+      { passive: true }
+    );
+    update();
+  })();
 
   // --- 7. SEO FAQ Accordion ---
   const faqItems = document.querySelectorAll(".faq-item");

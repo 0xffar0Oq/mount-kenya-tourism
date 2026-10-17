@@ -296,6 +296,13 @@
 
 <body>
 
+  <!-- ========================================================================
+       GIANT TOPOGRAPHIC MAP BACKDROP (decorative, fixed behind the page)
+       ======================================================================== -->
+  <div class="map-backdrop" id="mapBackdrop" aria-hidden="true">
+    <img src="assets/images/topo-backdrop.svg" alt="" decoding="async">
+  </div>
+
   <!-- Expedition progress / altitude gauge -->
   <div class="expedition-progress" id="expeditionProgress" aria-hidden="true">
     <span class="xp-label">Ascent Progress</span>
@@ -1253,109 +1260,54 @@
     <!-- ======================================================================
          PHOTO GALLERY SECTION
          ====================================================================== -->
-    <section id="gallery" class="section section-alt" aria-labelledby="gallery-title">
+    <section id="gallery" class="section section-alt gallery-hub" aria-labelledby="gallery-title">
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow" data-i18n="galleryEyebrow">High-Resolution Photography</div>
           <h2 id="gallery-title" class="section-title" data-i18n="galleryTitle">
-            Mount Kenya <span>Expedition Gallery</span>
+            Mount Kenya <span>Expedition Archive</span>
           </h2>
           <p class="section-desc" data-i18n="galleryDesc">
-            Authentic photography captured across the glaciated peaks, sheer cliffs, and Afro-alpine valleys of Mount Kenya National Park. Click any photo to view in high-resolution lightbox.
+            An open field archive of the massif &mdash; glaciated summits, sheer volcanic cliffs,
+            Afro-alpine valleys and the high tarns. Scroll to travel through the depth stack,
+            then explore the full collection below.
           </p>
         </div>
+      </div>
 
-        <div class="gallery-grid">
-          <!-- Image 1 -->
-          <div class="gallery-card">
-            <picture>
-              <source srcset="assets/images/hero-peaks.webp" type="image/webp">
-              <img src="assets/images/hero-peaks.jpg"
-                   alt="Mount Kenya triple peaks of Point Lenana, Nelion and Batian"
-                   width="1600" height="1200"
-                   loading="lazy" decoding="async">
-            </picture>
-            <div class="gallery-overlay">
-              <div class="gallery-caption-title" data-i18n="galCap1">Triple Peaks at Dawn</div>
-              <div class="gallery-caption-meta">Lenana, Nelion & Batian • Photo: Franco Pecchio (CC BY 2.0)</div>
+      <!-- DEPTH-STACK PARALLAX REEL -->
+      <div class="reel-section" id="reelSection">
+        <div class="reel-sticky">
+          <div class="reel-perspective">
+            <div class="reel-track" id="reelTrack" aria-hidden="true">
+              <!-- reel cards injected by JS -->
             </div>
           </div>
-
-          <!-- Image 2 -->
-          <div class="gallery-card">
-            <picture>
-              <source srcset="assets/images/the-temple.webp" type="image/webp">
-              <img src="assets/images/the-temple.jpg"
-                   alt="The Temple cliff precipice above Lake Michaelson"
-                   width="922" height="1211"
-                   loading="lazy" decoding="async">
-            </picture>
-            <div class="gallery-overlay">
-              <div class="gallery-caption-title" data-i18n="galCap2">The Temple & Lake Michaelson</div>
-              <div class="gallery-caption-meta">Chogoria Route • Photo: Mehmet Karatay (CC BY-SA 2.5)</div>
-            </div>
+          <div class="reel-hud" aria-hidden="true">
+            <span class="reel-hud-tag">Depth Stack &middot; Field Archive</span>
+            <span class="reel-hud-count"><span id="reelNow">01</span> / <span id="reelTotal">100</span></span>
+            <div class="reel-hud-bar"><span id="reelBar"></span></div>
           </div>
-
-          <!-- Image 3 -->
-          <div class="gallery-card">
-            <picture>
-              <source srcset="assets/images/gorges-valley.webp" type="image/webp">
-              <img src="assets/images/gorges-valley.jpg"
-                   alt="Glacial Gorges Valley approach along Chogoria route"
-                   width="1200" height="519"
-                   loading="lazy" decoding="async">
-            </picture>
-            <div class="gallery-overlay">
-              <div class="gallery-caption-title" data-i18n="galCap3">Gorges Valley Glacial Cirque</div>
-              <div class="gallery-caption-meta">East Flank Approach • Photo: Mehmet Karatay (CC BY-SA 2.5)</div>
-            </div>
-          </div>
-
-          <!-- Image 4 -->
-          <div class="gallery-card">
-            <picture>
-              <source srcset="assets/images/giant-groundsels.webp" type="image/webp">
-              <img src="assets/images/giant-groundsels.jpg"
-                   alt="Endemic giant groundsels near Hall Tarns Mount Kenya"
-                   width="1200" height="800"
-                   loading="lazy" decoding="async">
-            </picture>
-            <div class="gallery-overlay">
-              <div class="gallery-caption-title" data-i18n="galCap4">Dendrosenecio keniodendron</div>
-              <div class="gallery-caption-meta">Afro-Alpine Moorland • Photo: Dwergenpaartje (CC BY-SA 4.0)</div>
-            </div>
-          </div>
-
-          <!-- Image 5 -->
-          <div class="gallery-card">
-            <picture>
-              <source srcset="assets/images/senecio-flora.webp" type="image/webp">
-              <img src="assets/images/senecio-flora.jpg"
-                   alt="Senecio battiscombei tree groundsel adaptation"
-                   width="442" height="658"
-                   loading="lazy" decoding="async">
-            </picture>
-            <div class="gallery-overlay">
-              <div class="gallery-caption-title" data-i18n="galCap5">Senecio battiscombei</div>
-              <div class="gallery-caption-meta">Botanical Adaptation • Photo: Mehmet Karatay (CC BY-SA 2.5)</div>
-            </div>
-          </div>
-
-          <!-- Image 6 -->
-          <div class="gallery-card">
-            <picture>
-              <source srcset="assets/images/mintos-highland.webp" type="image/webp">
-              <img src="assets/images/mintos-highland.jpg"
-                   alt="High moorland plateau near Mintos Hut Mount Kenya"
-                   width="1400" height="847"
-                   loading="lazy" decoding="async">
-            </picture>
-            <div class="gallery-overlay">
-              <div class="gallery-caption-title" data-i18n="galCap6">Minto's Camp Plateau</div>
-              <div class="gallery-caption-meta">High Tarns • Photo: Ray in Manila (CC BY 2.0)</div>
-            </div>
+          <div class="reel-scroll-hint" aria-hidden="true">
+            <span>Scroll to travel through the archive</span>
+            <span class="reel-hint-arrow">&darr;</span>
           </div>
         </div>
+      </div>
+
+      <!-- FULL ARCHIVE GRID -->
+      <div class="container">
+        <div class="archive-head">
+          <h3 class="archive-title">The Full Archive &mdash; <span id="archiveCount">100</span> frames</h3>
+          <div class="archive-legend" aria-hidden="true">
+            <span><i class="dot dot-summit"></i>Summit &amp; glaciers</span>
+            <span><i class="dot dot-route"></i>Routes &amp; camps</span>
+            <span><i class="dot dot-flora"></i>Afro-alpine flora</span>
+            <span><i class="dot dot-tarn"></i>Tarns &amp; valleys</span>
+          </div>
+        </div>
+        <div class="photo-grid" id="photoGrid"></div>
+        <p class="gallery-status" id="galleryStatus">Loading the archive&hellip;</p>
       </div>
     </section>
 
