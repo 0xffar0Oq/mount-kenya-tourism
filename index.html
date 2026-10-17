@@ -300,7 +300,7 @@
        GIANT TOPOGRAPHIC MAP BACKDROP (decorative, fixed behind the page)
        ======================================================================== -->
   <div class="map-backdrop" id="mapBackdrop" aria-hidden="true">
-    <img src="assets/images/topo-backdrop.svg" alt="" decoding="async">
+    <img src="assets/images/map-satellite.jpg" alt="" decoding="async">
   </div>
 
   <!-- Expedition progress / altitude gauge -->
@@ -356,15 +356,33 @@
          ====================================================================== -->
     <section class="hero-section" aria-labelledby="hero-title">
       <div class="hero-backdrop">
-        <picture>
-          <source srcset="assets/images/hero-peaks.webp" type="image/webp">
-          <img src="assets/images/hero-peaks.jpg"
-               alt="Panoramic view of Mount Kenya peaks Batian, Nelion, and Point Lenana at sunrise"
-               width="1600" height="1200"
-               fetchpriority="high" decoding="async">
-        </picture>
+        <div class="hero-bg-cycle" id="heroBgCycle" aria-hidden="true">
+          <img class="hero-bg-slide is-active" src="assets/images/hero-peaks.webp"
+               alt="" width="1600" height="1200" fetchpriority="high" decoding="async">
+          <img class="hero-bg-slide" src="assets/images/gallery/002-mount-kenya-and-the-gregory-glacier.webp"
+               alt="" width="1280" height="854" loading="lazy" decoding="async">
+          <img class="hero-bg-slide" src="assets/images/gallery/013-202102-lake-alice-mt-kenya-19-50998414418.webp"
+               alt="" width="1280" height="854" loading="lazy" decoding="async">
+          <img class="hero-bg-slide" src="assets/images/gallery/011-simba-and-teleki-tarns-mt-kenya.webp"
+               alt="" width="1280" height="854" loading="lazy" decoding="async">
+        </div>
         <canvas id="ambientTopoCanvas" class="ambient-topo-canvas" aria-hidden="true"></canvas>
       </div>
+
+      <!-- Parallax photo totems flanking the hero text -->
+      <div class="hero-totem hero-totem-left" id="heroTotemLeft" aria-hidden="true">
+        <figure class="totem-card" data-depth="0.55"><img src="assets/images/gallery/002-mount-kenya-and-the-gregory-glacier.webp" alt="" loading="eager" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.9"><img src="assets/images/gallery/004-202102-lake-alice-mt-kenya-23-50999112521.webp" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.38"><img src="assets/images/gallery/008-giant-lobelia.webp" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.72"><img src="assets/images/gallery/011-simba-and-teleki-tarns-mt-kenya.webp" alt="" loading="lazy" decoding="async"></figure>
+      </div>
+      <div class="hero-totem hero-totem-right" id="heroTotemRight" aria-hidden="true">
+        <figure class="totem-card" data-depth="0.62"><img src="assets/images/gallery/006-a-feature-from-mt-kenya.webp" alt="" loading="eager" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.34"><img src="assets/images/gallery/009-202102-lake-alice-mt-kenya-20-50999234737.webp" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.85"><img src="assets/images/gallery/012-gregory003.webp" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="totem-card" data-depth="0.5"><img src="assets/images/gallery/014-at-mt-kenya.webp" alt="" loading="lazy" decoding="async"></figure>
+      </div>
+
       <div class="hero-overlay"></div>
 
       <div class="container hero-content">

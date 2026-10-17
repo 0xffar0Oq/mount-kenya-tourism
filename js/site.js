@@ -207,10 +207,56 @@
   });
 
   /* -----------------------------------------------------------------------
+     5b. Living UI — animated numeric counters
+     --------------------------------------------------------------------- */
+  function initCounters() {
+    var targets = doc.querySelectorAll(".stat-value, [data-count]");
+    if (!targets.length || reduceMotion) return;
+
+    function format(v) { return String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+
+    function animate(el) {
+      var node = null;
+      for (var i = 0; i < el.childNodes.length; i++) {
+        var n = el.childNodes[i];
+        if (n.nodeType === 3 && /\d/.test(n.nodeValue)) { node = n; break; }
+      }
+      if (!node) return;
+      var match = node.nodeValue.match(/^([^0-9]*)([\d,]+)/);
+      if (!match) return;
+      var prefix = match[1] || "";
+      var target = parseInt(match[2].replace(/[^0-9]/g, ""), 10);
+      if (!target) return;
+      var start = null, dur = 1500;
+      node.nodeValue = prefix + "0";
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        node.nodeValue = prefix + format(Math.round(target * eased));
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.4 });
+      Array.prototype.forEach.call(targets, function (el) { io.observe(el); });
+    } else {
+      Array.prototype.forEach.call(targets, animate);
+    }
+  }
+
+  /* -----------------------------------------------------------------------
      6. Boot
      --------------------------------------------------------------------- */
   function boot() {
     initReveals();
+    initCounters();
     onScroll();
     window.addEventListener("scroll", requestScrollTick, { passive: true });
     window.addEventListener("resize", requestScrollTick, { passive: true });

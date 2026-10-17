@@ -1069,6 +1069,37 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       grid.querySelectorAll(".photo-card").forEach((el) => el.classList.add("is-visible"));
     }
+
+    // Parallax depth: alternating columns drift at different speeds while scrolling
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const cards = Array.from(grid.querySelectorAll(".photo-card"));
+      const visible = new Set();
+      const trackIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+        },
+        { rootMargin: "25% 0px 25% 0px" }
+      );
+      cards.forEach((c, i) => {
+        c.dataset.depth = i % 2 === 0 ? "1" : "0.55";
+        trackIO.observe(c);
+      });
+      let pRaf = null;
+      const updateParallax = () => {
+        pRaf = null;
+        const vh = window.innerHeight;
+        const mid = vh / 2;
+        visible.forEach((c) => {
+          const r = c.getBoundingClientRect();
+          const d = (r.top + r.height / 2 - mid) / vh;
+          const depth = parseFloat(c.dataset.depth) || 1;
+          c.style.translate = `0 ${(-d * 60 * depth).toFixed(1)}px`;
+        });
+      };
+      window.addEventListener("scroll", () => { if (!pRaf) pRaf = requestAnimationFrame(updateParallax); }, { passive: true });
+      window.addEventListener("resize", () => { if (!pRaf) pRaf = requestAnimationFrame(updateParallax); }, { passive: true });
+      updateParallax();
+    }
   }
 
   function loadArchive() {
@@ -1108,7 +1139,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const drift = Math.sin(y * 0.00045) * 4;
       img.style.transform =
         `translate3d(-50%, calc(-50% + ${(y * 0.06).toFixed(1)}px), 0) ` +
-        `rotate(${drift.toFixed(2)}deg) scale(1.04)`;
+        `rotate(${drift.toFixed(2)}deg) scale(1.12)`;
     }
     window.addEventListener(
       "scroll",
@@ -1118,6 +1149,63 @@ document.addEventListener("DOMContentLoaded", () => {
       { passive: true }
     );
     update();
+  })();
+
+  // --- 6b. Hero: cycling backdrop + parallax photo totems ---
+  (function heroLife() {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Dynamically cycling landing image
+    const cycle = document.getElementById("heroBgCycle");
+    if (cycle && !reduce) {
+      const slides = Array.from(cycle.querySelectorAll(".hero-bg-slide"));
+      if (slides.length > 1) {
+        let i = 0;
+        setInterval(() => {
+          slides[i].classList.remove("is-active");
+          i = (i + 1) % slides.length;
+          slides[i].classList.add("is-active");
+        }, 5200);
+      }
+    }
+
+    const left = document.getElementById("heroTotemLeft");
+    const right = document.getElementById("heroTotemRight");
+    if (!left || !right || reduce) return;
+
+    let px = 0, py = 0, tx = 0, ty = 0;
+    let raf = null;
+    let inView = true;
+
+    const onPointer = (e) => {
+      tx = (e.clientX / window.innerWidth) * 2 - 1;
+      ty = (e.clientY / window.innerHeight) * 2 - 1;
+    };
+    window.addEventListener("pointermove", onPointer, { passive: true });
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        inView = entries[0].isIntersecting;
+        if (inView && !raf) raf = requestAnimationFrame(loop);
+      }, { threshold: 0 }).observe(left);
+    }
+
+    function loop() {
+      raf = null;
+      px += (tx - px) * 0.07;
+      py += (ty - py) * 0.07;
+      const y = window.scrollY;
+      const base = Math.max(window.innerHeight * 0.9, 1);
+      const prog = Math.min(y / base, 1);
+      left.style.transform =
+        `translate3d(${(-3 - prog * 7 + px * -12).toFixed(2)}%, ${(py * -16 + prog * 90).toFixed(1)}px, 0) ` +
+        `rotate(${(prog * -3).toFixed(2)}deg)`;
+      right.style.transform =
+        `translate3d(${(3 + prog * 7 + px * 12).toFixed(2)}%, ${(py * 16 - prog * 60).toFixed(1)}px, 0) ` +
+        `rotate(${(prog * 3).toFixed(2)}deg)`;
+      if (inView) raf = requestAnimationFrame(loop);
+    }
+    raf = requestAnimationFrame(loop);
   })();
 
   // --- 7. SEO FAQ Accordion ---
