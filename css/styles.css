@@ -192,7 +192,24 @@ ul, ol {
 }
 
 .section-alt {
-  background-color: var(--bg-secondary);
+  background: linear-gradient(180deg, rgba(10, 12, 17, 0.96) 0%, rgba(6, 7, 11, 0.98) 100%);
+  position: relative;
+}
+
+.section-alt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 90, 31, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(200, 242, 78, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-alt > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Editorial section index: 01 / LABEL ——— */
@@ -484,26 +501,37 @@ section {
   object-fit: cover;
   object-position: center 30%;
   opacity: 0;
-  transform: scale(1.1);
-  filter: brightness(0.6) contrast(1.12);
-  transition: opacity 1.8s ease, transform 8s ease-out;
+  transform: scale(1.12) translate3d(0, 0, 0);
+  filter: brightness(0.5) contrast(1.14) saturate(1.08);
+  transition: opacity 2.4s ease, transform 12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: opacity, transform;
 }
 
 .hero-bg-slide.is-active {
   opacity: 1;
-  transform: scale(1.02);
+  transform: scale(1.02) translate3d(0, -1%, 0);
+}
+
+.hero-bg-cycle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(6, 7, 11, 0.4) 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(900px 500px at 78% 22%, rgba(255, 90, 31, 0.22), transparent 65%),
+    radial-gradient(1200px 600px at 82% 18%, rgba(255, 90, 31, 0.28), transparent 68%),
+    radial-gradient(800px 400px at 15% 35%, rgba(200, 242, 78, 0.08), transparent 60%),
     linear-gradient(
       180deg,
-      rgba(6, 7, 11, 0.45) 0%,
-      rgba(6, 7, 11, 0.78) 58%,
+      rgba(6, 7, 11, 0.35) 0%,
+      rgba(6, 7, 11, 0.72) 52%,
+      rgba(6, 7, 11, 0.94) 82%,
       var(--bg-primary) 100%
     );
   z-index: 2;
@@ -3561,37 +3589,40 @@ section {
 
 .photo-card {
   position: relative;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   cursor: pointer;
   background: var(--bg-card);
   aspect-ratio: 4 / 3;
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out),
-    border-color 0.3s ease;
+  transform: translateY(36px) scale(0.97);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.4s ease, box-shadow 0.5s ease;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .photo-card.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .photo-card:hover,
 .photo-card:focus-visible {
-  border-color: var(--border-accent);
+  border-color: rgba(255, 90, 31, 0.6);
+  box-shadow: 0 12px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 90, 31, 0.15);
+  z-index: 2;
 }
 
 .photo-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--ease-out);
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .photo-card:hover img {
-  transform: scale(1.06);
+  transform: scale(1.12);
 }
 
 .photo-card-overlay {
@@ -3601,10 +3632,10 @@ section {
   flex-direction: column;
   justify-content: flex-end;
   gap: 0.35rem;
-  padding: 0.85rem;
-  background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.82) 100%);
+  padding: 1rem;
+  background: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.92) 100%);
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.4s ease;
 }
 
 .photo-card:hover .photo-card-overlay,
@@ -3632,15 +3663,16 @@ section {
   top: 0.7rem;
   left: 0.7rem;
   font-family: var(--font-mono);
-  font-size: 0.56rem;
-  letter-spacing: 0.14em;
+  font-size: 0.58rem;
   text-transform: uppercase;
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius-sm);
-  background: rgba(6, 7, 11, 0.7);
-  backdrop-filter: blur(6px);
-  color: var(--text-primary);
-  border-left: 2px solid var(--accent-gold);
+  letter-spacing: 0.16em;
+  padding: 0.32rem 0.7rem;
+  border-radius: var(--radius-pill);
+  background: rgba(6, 7, 11, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .photo-tag.tag-route { border-left-color: var(--accent-emerald); }

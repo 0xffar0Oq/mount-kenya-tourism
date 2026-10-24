@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://0xffar0oq.github.io/mount-kenya-tourism/sitemap.xml
+
 # Canonical Sitemap
 Sitemap: https://0xffar0oq.github.io/mount-kenya-tourism/sitemap.xml
