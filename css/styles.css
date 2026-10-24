@@ -541,6 +541,13 @@ section {
   position: relative;
   z-index: 4;
   max-width: 940px;
+  background: radial-gradient(ellipse at center, rgba(6, 7, 11, 0.65) 0%, rgba(6, 7, 11, 0.45) 60%, transparent 100%);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
 /* --- Parallax photo totems — fixed rails that run the whole page --- */
